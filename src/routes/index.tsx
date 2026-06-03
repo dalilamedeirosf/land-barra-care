@@ -185,7 +185,7 @@ function Marquee() {
   const words = ["Mecânica Completa", "Elétrica", "Funilaria", "Suspensão Pneumática", "Diagnóstico", "Ar-condicionado", "Transporte", "Consultoria"];
   return (
     <div className="border-y border-border bg-union py-5 overflow-hidden">
-      <div className="flex animate-[scroll_40s_linear_infinite] gap-12 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream">
+      <div className="flex animate-[scroll_15s_linear_infinite] gap-12 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream">
         {[...words, ...words, ...words].map((w, i) => (
           <span key={i} className="flex items-center gap-12">
             {w} <span className="text-cream/40">✦</span>
