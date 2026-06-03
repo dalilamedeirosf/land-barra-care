@@ -121,7 +121,7 @@ function Hero() {
         muted
         playsInline
         poster={heroImg}
-        style={{ opacity: 0.42 }}
+        style={{ opacity: 0.45 }}
         className="absolute inset-0 h-full w-full object-cover select-none"
       >
         <source src={heroVideo} type="video/mp4" />
@@ -141,9 +141,11 @@ function Hero() {
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
             Oficina Mecânica Premium & Performance
           </div>
-          <h1 className="text-display text-5xl leading-[0.95] text-cream sm:text-7xl md:text-8xl font-black uppercase tracking-tighter text-shadow-sporty">
-            Engenharia Automotiva<br />
-            <span className="text-accent text-3xl sm:text-5xl md:text-6xl block mt-2">para veículos de alta performance</span>
+          <h1 className="text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty">
+            <span className="block">Engenharia Automotiva</span>
+            <span className="text-accent text-xl sm:text-3xl md:text-4xl block mt-4 font-bold tracking-wide">
+              para veículos de alta performance
+            </span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
             Um centro automotivo premium completo onde a engenharia de precisão encontra a paixão por performance.
