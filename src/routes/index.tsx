@@ -305,7 +305,7 @@ function ShowcaseStrip() {
           Agende uma avaliação<br />sem compromisso.
         </h2>
         <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground">
-          <Phone className="h-4 w-4" /> +55 21 99198-3003
+          <Phone className="h-4 w-4" /> Agende agora
         </a>
       </div>
     </section>
