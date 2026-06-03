@@ -284,9 +284,8 @@ function ShowcaseStrip() {
   return (
     <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
       <img src={workshopImg} alt="Oficina Garage Britânica" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-background/80" />
+      <div className="absolute inset-0 bg-background/70" />
       <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
-        <img src={logo} alt="Garage Britânica" className="h-28 w-auto mb-6 object-contain drop-shadow-md select-none" />
         <p className="text-xs uppercase tracking-[0.5em] text-accent font-semibold">Pronto para começar?</p>
         <h2 className="mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl uppercase">
           Agende uma avaliação<br />sem compromisso.
