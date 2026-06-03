@@ -104,7 +104,7 @@ function Nav() {
           <a href="#servicos" className="text-sm text-muted-foreground hover:text-cream">Serviços</a>
           <a href="#contato" className="text-sm text-muted-foreground hover:text-cream">Contato</a>
         </nav>
-        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent-foreground transition hover:bg-accent/90">
+        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent-foreground">
           <Phone className="h-3.5 w-3.5" /> Agendar
         </a>
       </div>
@@ -152,7 +152,7 @@ function Hero() {
             Do diagnóstico computadorizado completo à suspensão pneumática — cuidamos do seu importado no padrão que ele exige.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground shadow-glow transition hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98]">
+            <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground">
               Agendar no WhatsApp
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
@@ -304,7 +304,7 @@ function ShowcaseStrip() {
         <h2 className="mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl uppercase">
           Agende uma avaliação<br />sem compromisso.
         </h2>
-        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground shadow-glow hover:bg-accent/90">
+        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground">
           <Phone className="h-4 w-4" /> +55 21 99198-3003
         </a>
       </div>
@@ -335,7 +335,7 @@ function Contact() {
             Assistência técnica premium para todas as marcas. Trabalhamos com transparência,
             qualidade de oficina autorizada e o cuidado de quem entende de carro.
           </p>
-          <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="relative mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground hover:bg-accent/90">
+          <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground">
             Conversar agora <ArrowUpRight className="h-4 w-4" />
           </a>
         </aside>
