@@ -319,7 +319,7 @@ function Contact() {
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">Visite ou ligue</p>
           <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl uppercase">Estamos prontos para receber você.</h2>
-          <div className="mt-10 space-y-6">
+          <div className="mt-10 space-y-4">
             <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do João, 3816 — João", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joao+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
             <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
             <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://instagram.com/land.barra" />
@@ -346,18 +346,29 @@ function Contact() {
 
 function ContactRow({ icon: Icon, title, lines, href }: { icon: typeof MapPin; title: string; lines: string[]; href?: string }) {
   const content = (
-    <div className="flex items-start gap-5 border-t border-border pt-6">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-primary/30 text-cream">
+    <div className="flex items-start gap-5">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/contact:bg-accent group-hover/contact:text-accent-foreground transition-all duration-300">
         <Icon className="h-5 w-5" />
       </span>
-      <div>
+      <div className="flex-1">
         <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{title}</div>
         {lines.map((l) => <div key={l} className="text-display text-lg text-cream">{l}</div>)}
       </div>
-      {href && <ArrowUpRight className="ml-auto h-5 w-5 text-muted-foreground" />}
+      {href && <ArrowUpRight className="ml-auto h-5 w-5 text-muted-foreground group-hover/contact:text-accent group-hover/contact:translate-x-0.5 group-hover/contact:-translate-y-0.5 transition-all duration-300" />}
     </div>
   );
-  return href ? <a href={href} target="_blank" rel="noreferrer" className="block transition hover:opacity-80">{content}</a> : content;
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="group/contact fine-border-laser block p-5"
+    >
+      {content}
+    </a>
+  ) : (
+    <div className="fine-border-laser block p-5">{content}</div>
+  );
 }
 
 function Footer() {

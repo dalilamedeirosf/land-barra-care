@@ -137,6 +137,15 @@
   }
 }
 
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @layer utilities {
   .text-display { font-family: var(--font-display); }
   .bg-union { background-image: var(--gradient-union); }
@@ -208,5 +217,64 @@
 
   .btn-premium:active {
     transform: translateY(0) scale(0.97);
+  }
+
+  /* Rotating border laser light */
+  .fine-border-laser {
+    position: relative;
+    border-radius: var(--radius-sm);
+    background: oklch(0.21 0.012 240 / 0.45);
+    border: 1px solid oklch(0.28 0.012 240);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fine-border-laser::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 45%,
+      oklch(0.58 0.23 24) 49%,
+      oklch(0.94 0.04 85) 50%,
+      oklch(0.58 0.23 24) 51%,
+      transparent 55%
+    );
+    animation: rotate-border 5s linear infinite;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .fine-border-laser::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: oklch(0.21 0.012 240);
+    border-radius: calc(var(--radius-sm) - 1px);
+    z-index: 1;
+    transition: background-color 0.4s ease;
+    pointer-events: none;
+  }
+
+  .fine-border-laser > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .fine-border-laser:hover::before {
+    opacity: 1;
+  }
+
+  .fine-border-laser:hover {
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px oklch(0.58 0.23 24 / 0.25);
+    background-color: oklch(0.21 0.012 240 / 0.85);
   }
 }
