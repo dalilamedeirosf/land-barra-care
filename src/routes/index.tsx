@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Wrench, Gauge, Zap, Snowflake, CircleGauge, Cog, Settings2, Car,
-  PaintBucket, Sofa, Truck, ShieldCheck, MapPin, Instagram, Facebook,
+  PaintBucket, Sofa, Truck, ShieldCheck, MapPin, Instagram,
   Phone, ArrowUpRight, Droplets, Disc3,
 } from "lucide-react";
 import logo from "@/assets/garage-britanica-logo.png";
@@ -322,7 +322,6 @@ function Contact() {
             <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do Joá, 3816 — Joá", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joa+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
             <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
             <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://instagram.com/land.barra" />
-            <ContactRow icon={Facebook} title="Facebook" lines={["Land Barra"]} href="https://facebook.com/land.barra" />
           </div>
         </div>
 
