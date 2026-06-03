@@ -13,9 +13,9 @@ import workshopImg from "@/assets/workshop-wide.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Land Barra | Garage Britânica — Assistência Técnica Premium" },
+      { title: "Garage Britânica — Assistência Técnica Premium" },
       { name: "description", content: "Centro automotivo premium na Barra da Tijuca: mecânica completa, elétrica, funilaria, suspensão pneumática e consultoria automotiva." },
-      { property: "og:title", content: "Land Barra | Garage Britânica" },
+      { property: "og:title", content: "Garage Britânica" },
       { property: "og:description", content: "Assistência técnica premium para o seu veículo na Barra da Tijuca." },
       { property: "og:image", content: logo.url },
       { property: "twitter:image", content: logo.url },
@@ -25,6 +25,8 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP = "https://wa.me/5521991983003";
+const WHATSAPP_GENERAL = "https://wa.me/5521991983003?text=Ol%C3%A1%21+Gostaria+de+agendar+um+atendimento+na+Garage+Brit%C3%A2nica.+Poderia+me+ajudar%3F";
+
 
 const serviceGroups = [
   {
@@ -89,10 +91,10 @@ function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo.url} alt="Land Barra Garage Britânica" className="h-11 w-11 rounded-full object-contain" />
+          <img src={logo.url} alt="Garage Britânica" className="h-11 w-11 rounded-full object-contain" />
           <div className="leading-tight">
-            <div className="text-display text-base tracking-wider text-cream">LAND BARRA</div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Garage Britânica</div>
+            <div className="text-display text-base tracking-wider text-cream">GARAGE BRITÂNICA</div>
+            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Assistência Técnica Premium</div>
           </div>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -100,7 +102,7 @@ function Nav() {
           <a href="#servicos" className="text-sm text-muted-foreground hover:text-cream">Serviços</a>
           <a href="#contato" className="text-sm text-muted-foreground hover:text-cream">Contato</a>
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent-foreground transition hover:bg-accent/90">
+        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent-foreground transition hover:bg-accent/90">
           <Phone className="h-3.5 w-3.5" /> Agendar
         </a>
       </div>
@@ -111,7 +113,7 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative isolate min-h-screen overflow-hidden pt-20 bg-grid-pattern">
-      <img src={heroImg} alt="Land Rover Evoque na Oficina Land Barra" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-50 select-none" />
+      <img src={heroImg} alt="Land Rover Evoque na Oficina Garage Britânica" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-50 select-none" />
       <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
       <div className="absolute inset-0 grain" />
@@ -136,7 +138,7 @@ function Hero() {
             Do diagnóstico computadorizado completo à suspensão pneumática — cuidamos do seu importado no padrão que ele exige.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground shadow-glow transition hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98]">
+            <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground shadow-glow transition hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98]">
               Agendar no WhatsApp
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
@@ -246,7 +248,7 @@ function Services() {
               </div>
               <ul className="grid gap-3.5">
                 {g.items.map(({ icon: Icon, label }) => {
-                  const messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Land Barra.`;
+                  const messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Garage Britânica.`;
                   const url = `${WHATSAPP}?text=${encodeURIComponent(messageText)}`;
                   return (
                     <li key={label}>
@@ -281,14 +283,14 @@ function Services() {
 function ShowcaseStrip() {
   return (
     <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-      <img src={workshopImg} alt="Oficina Land Barra" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
+      <img src={workshopImg} alt="Oficina Garage Britânica" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-background/70" />
       <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
-        <p className="text-xs uppercase tracking-[0.5em] text-accent">Pronto para começar?</p>
-        <h2 className="mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl">
+        <p className="text-xs uppercase tracking-[0.5em] text-accent font-semibold">Pronto para começar?</p>
+        <h2 className="mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl uppercase">
           Agende uma avaliação<br />sem compromisso.
         </h2>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground shadow-glow hover:bg-accent/90">
+        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground shadow-glow hover:bg-accent/90">
           <Phone className="h-4 w-4" /> +55 21 99198-3003
         </a>
       </div>
@@ -305,7 +307,7 @@ function Contact() {
           <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl uppercase">Estamos prontos para receber você.</h2>
           <div className="mt-10 space-y-6">
             <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do João, 3816 — João", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joao+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
-            <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP} />
+            <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
             <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://instagram.com/land.barra" />
             <ContactRow icon={Facebook} title="Facebook" lines={["Land Barra"]} href="https://facebook.com/land.barra" />
           </div>
@@ -319,7 +321,7 @@ function Contact() {
             Assistência técnica premium para todas as marcas. Trabalhamos com transparência,
             qualidade de oficina autorizada e o cuidado de quem entende de carro.
           </p>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="relative mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground hover:bg-accent/90">
+          <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="relative mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground hover:bg-accent/90">
             Conversar agora <ArrowUpRight className="h-4 w-4" />
           </a>
         </aside>
@@ -350,7 +352,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row">
         <div className="flex items-center gap-3">
           <img src={logo.url} alt="" className="h-7 w-7 rounded-full" />
-          <span className="uppercase tracking-widest">Land Barra © {new Date().getFullYear()}</span>
+          <span className="uppercase tracking-widest">Garage Britânica © {new Date().getFullYear()}</span>
         </div>
         <span className="uppercase tracking-widest">Garage Britânica · Assistência Técnica Premium</span>
       </div>
