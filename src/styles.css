@@ -56,7 +56,7 @@
   --muted: oklch(0.24 0.012 240);
   --muted-foreground: oklch(0.7 0.02 80);
 
-  --accent: oklch(0.55 0.18 28);                /* crimson */
+  --accent: oklch(0.58 0.23 24);                /* sporty high-performance red */
   --accent-foreground: oklch(0.96 0.02 85);
 
   --destructive: oklch(0.55 0.22 28);
@@ -64,7 +64,7 @@
 
   --border: oklch(0.28 0.012 240);
   --input: oklch(0.28 0.012 240);
-  --ring: oklch(0.55 0.18 28);
+  --ring: oklch(0.58 0.23 24);
 
   --cream: oklch(0.94 0.04 85);
   --crimson: oklch(0.5 0.2 28);
@@ -73,10 +73,10 @@
   --font-display: "Oswald", "Impact", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.3) 0%, oklch(0.16 0.012 240 / 0.85) 65%, oklch(0.16 0.012 240) 100%);
-  --gradient-union: linear-gradient(135deg, oklch(0.32 0.09 155) 0%, oklch(0.5 0.2 28) 100%);
+  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.4) 0%, oklch(0.16 0.012 240 / 0.85) 60%, oklch(0.16 0.012 240) 100%);
+  --gradient-union: linear-gradient(135deg, oklch(0.32 0.09 155) 0%, oklch(0.58 0.23 24) 100%);
   --shadow-elegant: 0 30px 80px -20px oklch(0 0 0 / 0.6);
-  --shadow-glow: 0 0 60px oklch(0.55 0.18 28 / 0.35);
+  --shadow-glow: 0 0 40px oklch(0.58 0.23 24 / 0.3);
 }
 
 .dark { color-scheme: dark; }
@@ -96,6 +96,26 @@
   }
 }
 
+@keyframes pulse-accent {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.58 0.23 24 / 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px oklch(0.58 0.23 24 / 0);
+  }
+}
+
+@keyframes pulse-glow-button {
+  0%, 100% {
+    box-shadow: 0 0 5px oklch(0.58 0.23 24 / 0.1);
+    border-color: oklch(0.28 0.012 240);
+  }
+  50% {
+    box-shadow: 0 0 15px oklch(0.58 0.23 24 / 0.35);
+    border-color: oklch(0.58 0.23 24 / 0.7);
+  }
+}
+
 @layer utilities {
   .text-display { font-family: var(--font-display); }
   .bg-union { background-image: var(--gradient-union); }
@@ -112,5 +132,25 @@
     background-image: radial-gradient(circle at 1px 1px, oklch(1 0 0 / 0.04) 1px, transparent 0);
     background-size: 3px 3px;
     pointer-events: none;
+  }
+  
+  /* Sporty adjustments */
+  .animate-pulse-accent {
+    animation: pulse-accent 2s infinite ease-in-out;
+  }
+  .animate-pulse-glow-button {
+    animation: pulse-glow-button 2.5s infinite ease-in-out;
+  }
+  .bg-grid-pattern {
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, oklch(1 0 0 / 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 0.03) 1px, transparent 1px);
+  }
+  .text-shadow-sporty {
+    text-shadow: 0 2px 12px oklch(0 0 0 / 0.9);
+  }
+  .shadow-glow-sm {
+    box-shadow: 0 0 15px oklch(0.58 0.23 24 / 0.2);
   }
 }

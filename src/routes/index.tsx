@@ -5,9 +5,10 @@ import {
   Phone, ArrowUpRight, Droplets, Disc3,
 } from "lucide-react";
 import logo from "@/assets/garage-britanica-logo.png.asset.json";
-import heroImg from "@/assets/hero-garage.jpg";
+import heroImg from "@/assets/evoque-hero.png";
 import engineImg from "@/assets/engine-detail.jpg";
 import workshopImg from "@/assets/workshop-wide.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,42 +110,46 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative isolate min-h-screen overflow-hidden pt-20">
-      <img src={heroImg} alt="Garagem premium Land Barra" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-90" />
-      <div className="hero-overlay absolute inset-0" />
+    <section id="top" className="relative isolate min-h-screen overflow-hidden pt-20 bg-grid-pattern">
+      <img src={heroImg} alt="Land Rover Evoque na Oficina Land Barra" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-50 select-none" />
+      <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
       <div className="absolute inset-0 grain" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-between px-6 py-16">
-        <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-cream/70">
-          <span className="h-px w-10 bg-cream/40" />
+        <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-cream/70 font-semibold text-shadow-sporty">
+          <span className="h-px w-10 bg-accent" />
           Est. Barra da Tijuca · Rio de Janeiro
         </div>
 
         <div className="max-w-4xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.5em] text-accent">Assistência Técnica Premium</p>
-          <h1 className="text-display text-5xl leading-[0.95] text-cream sm:text-7xl md:text-8xl">
-            Engenharia britânica.<br />
-            <span className="text-stroke-cream">Cuidado artesanal.</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent text-shadow-sporty">
+            <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+            Oficina Mecânica Premium & Performance
+          </div>
+          <h1 className="text-display text-5xl leading-[0.95] text-cream sm:text-7xl md:text-8xl font-black uppercase tracking-tighter text-shadow-sporty">
+            Especialista em<br />
+            <span className="text-accent">Land Rover</span>
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg">
-            Um centro automotivo completo onde precisão técnica encontra obsessão pelo detalhe.
-            Do diagnóstico computadorizado à suspensão pneumática — seu carro nas mãos certas.
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
+            Um centro automotivo premium completo onde a engenharia de precisão encontra a paixão por performance.
+            Do diagnóstico computadorizado completo à suspensão pneumática — cuidamos do seu importado no padrão que ele exige.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 rounded-sm bg-accent px-7 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent-foreground shadow-glow transition hover:bg-accent/90">
-              Falar no WhatsApp
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground shadow-glow transition hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98]">
+              Agendar no WhatsApp
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a href="#servicos" className="inline-flex items-center gap-3 rounded-sm border border-cream/30 px-7 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-cream transition hover:bg-cream/10">
-              Ver serviços
+            <a href="#servicos" className="inline-flex items-center gap-3 rounded-sm border border-cream/30 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cream backdrop-blur-sm transition hover:bg-cream/10 hover:border-cream/65">
+              Nossos Serviços
             </a>
           </div>
         </div>
 
         <div className="grid gap-6 border-t border-cream/15 pt-8 text-cream/80 sm:grid-cols-3">
-          <Stat n="20+" label="Serviços especializados" />
-          <Stat n="100%" label="Diagnóstico computadorizado" />
-          <Stat n="Premium" label="Padrão de atendimento" />
+          <Stat n="20+" label="Serviços Especializados" />
+          <Stat n="100%" label="Equipamentos Originais" />
+          <Stat n="Premium" label="Padrão de Atendimento" />
         </div>
       </div>
     </section>
@@ -153,9 +158,9 @@ function Hero() {
 
 function Stat({ n, label }: { n: string; label: string }) {
   return (
-    <div>
-      <div className="text-display text-3xl text-cream sm:text-4xl">{n}</div>
-      <div className="mt-1 text-xs uppercase tracking-[0.3em] text-cream/60">{label}</div>
+    <div className="border-l-2 border-accent pl-4">
+      <div className="text-display text-3xl font-bold text-cream sm:text-4xl tracking-tight text-shadow-sporty">{n}</div>
+      <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">{label}</div>
     </div>
   );
 }
@@ -217,37 +222,53 @@ function About() {
 
 function Services() {
   return (
-    <section id="servicos" className="relative border-t border-border bg-card/40 py-28">
+    <section id="servicos" className="relative border-t border-border bg-card/40 py-28 bg-grid-pattern">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-accent">O que fazemos</p>
-            <h2 className="mt-4 text-display text-4xl leading-tight sm:text-6xl">
-              Catálogo completo<br />de serviços.
+            <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">Serviços Premium</p>
+            <h2 className="mt-4 text-display text-4xl leading-tight sm:text-6xl uppercase">
+              Catálogo de Serviços<br />de Alta Performance.
             </h2>
           </div>
-          <p className="max-w-md text-muted-foreground">
-            Tudo o que seu veículo precisa, executado com método e padrão premium —
-            do óleo do motor à suspensão pneumática.
+          <p className="max-w-md text-muted-foreground font-medium">
+            Tudo o que seu veículo necessita, executado com padrões rigorosos e precisão técnica —
+            da manutenção básica à suspensão pneumática avançada. Clique em um serviço para agendar via WhatsApp.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {serviceGroups.map((g) => (
-            <article key={g.title} className="group relative overflow-hidden rounded-sm border border-border bg-background/60 p-8 transition hover:border-accent/60">
+            <article key={g.title} className="group relative overflow-hidden rounded-sm border border-border bg-background/60 p-8 transition hover:border-accent/40">
               <div className="mb-6 flex items-baseline justify-between border-b border-border/60 pb-4">
                 <h3 className="text-display text-2xl uppercase tracking-wider text-cream">{g.title}</h3>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">{String(g.items.length).padStart(2, "0")}</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">{String(g.items.length).padStart(2, "0")}</span>
               </div>
-              <ul className="space-y-3">
-                {g.items.map(({ icon: Icon, label }) => (
-                  <li key={label} className="flex items-center gap-4 text-sm text-foreground/90">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-primary/30 text-cream">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    {label}
-                  </li>
-                ))}
+              <ul className="grid gap-3.5">
+                {g.items.map(({ icon: Icon, label }) => {
+                  const messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Land Barra.`;
+                  const url = `${WHATSAPP}?text=${encodeURIComponent(messageText)}`;
+                  return (
+                    <li key={label}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group/btn flex items-center justify-between gap-4 rounded-sm border border-border/80 bg-background/30 p-4 transition-all duration-300 hover:border-accent hover:bg-accent/5 hover:-translate-y-0.5 hover:shadow-glow-sm animate-pulse-glow-button"
+                      >
+                        <div className="flex items-center gap-4">
+                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/btn:bg-accent group-hover/btn:text-accent-foreground group-hover/btn:scale-105 transition-all duration-300 animate-pulse-accent">
+                            <Icon className="h-5 w-5" />
+                          </span>
+                          <span className="text-sm font-semibold tracking-wide text-foreground/90 group-hover/btn:text-cream transition-colors">
+                            {label}
+                          </span>
+                        </div>
+                        <ArrowUpRight className="h-4.5 w-4.5 text-muted-foreground group-hover/btn:text-accent group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </article>
           ))}
@@ -280,13 +301,13 @@ function Contact() {
     <section id="contato" className="mx-auto max-w-7xl px-6 py-28">
       <div className="grid gap-16 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <p className="text-xs uppercase tracking-[0.4em] text-accent">Visite ou ligue</p>
-          <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl">Estamos prontos para receber você.</h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">Visite ou ligue</p>
+          <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl uppercase">Estamos prontos para receber você.</h2>
           <div className="mt-10 space-y-6">
-            <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do João, 3816 — João", "Barra da Tijuca, Rio de Janeiro"]} />
+            <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do João, 3816 — João", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joao+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
             <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP} />
             <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://instagram.com/land.barra" />
-            <ContactRow icon={Facebook} title="Facebook" lines={["Land Barra"]} href="https://facebook.com/" />
+            <ContactRow icon={Facebook} title="Facebook" lines={["Land Barra"]} href="https://facebook.com/land.barra" />
           </div>
         </div>
 
