@@ -6,8 +6,10 @@ import {
 } from "lucide-react";
 import logo from "@/assets/garage-britanica-logo.png";
 import heroImg from "@/assets/evoque-hero.png";
+import heroVideo from "@/assets/video.mp4";
 import engineImg from "@/assets/engine-detail.jpg";
 import workshopImg from "@/assets/workshop-wide.jpg";
+
 
 
 export const Route = createFileRoute("/")({
@@ -113,7 +115,16 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative isolate min-h-screen overflow-hidden pt-20 bg-grid-pattern">
-      <img src={heroImg} alt="Land Rover Evoque na Oficina Garage Britânica" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-50 select-none" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={heroImg}
+        className="absolute inset-0 h-full w-full object-cover opacity-40 select-none"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
       <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
       <div className="absolute inset-0 grain" />
