@@ -142,8 +142,8 @@ function Hero() {
             Oficina Mecânica Premium & Performance
           </div>
           <h1 className="text-display text-5xl leading-[0.95] text-cream sm:text-7xl md:text-8xl font-black uppercase tracking-tighter text-shadow-sporty">
-            Especialista em<br />
-            <span className="text-accent">Land Rover</span>
+            Engenharia Automotiva<br />
+            <span className="text-accent text-3xl sm:text-5xl md:text-6xl block mt-2">para veículos de alta performance</span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
             Um centro automotivo premium completo onde a engenharia de precisão encontra a paixão por performance.
