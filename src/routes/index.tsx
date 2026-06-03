@@ -4,7 +4,7 @@ import {
   PaintBucket, Sofa, Truck, ShieldCheck, MapPin, Instagram, Facebook,
   Phone, ArrowUpRight, Droplets, Disc3,
 } from "lucide-react";
-import logo from "@/assets/garage-britanica-logo.png.asset.json";
+import logo from "@/assets/garage-britanica-logo.png";
 import heroImg from "@/assets/evoque-hero.png";
 import engineImg from "@/assets/engine-detail.jpg";
 import workshopImg from "@/assets/workshop-wide.jpg";
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Centro automotivo premium na Barra da Tijuca: mecânica completa, elétrica, funilaria, suspensão pneumática e consultoria automotiva." },
       { property: "og:title", content: "Garage Britânica" },
       { property: "og:description", content: "Assistência técnica premium para o seu veículo na Barra da Tijuca." },
-      { property: "og:image", content: logo.url },
-      { property: "twitter:image", content: logo.url },
+      { property: "og:image", content: logo },
+      { property: "twitter:image", content: logo },
     ],
   }),
   component: Landing,
@@ -91,7 +91,7 @@ function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo.url} alt="Garage Britânica" className="h-11 w-11 rounded-full object-contain" />
+          <img src={logo} alt="Garage Britânica" className="h-11 w-11 rounded-full object-contain" />
           <div className="leading-tight">
             <div className="text-display text-base tracking-wider text-cream">GARAGE BRITÂNICA</div>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Assistência Técnica Premium</div>
@@ -315,7 +315,7 @@ function Contact() {
 
         <aside className="relative overflow-hidden rounded-sm border border-border bg-card p-10">
           <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
-          <img src={logo.url} alt="Garage Britânica" className="relative h-24 w-24 rounded-full" />
+          <img src={logo} alt="Garage Britânica" className="relative h-24 w-24 rounded-full object-contain bg-background" />
           <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Garage Britânica</h3>
           <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
             Assistência técnica premium para todas as marcas. Trabalhamos com transparência,
@@ -351,7 +351,7 @@ function Footer() {
     <footer className="border-t border-border bg-card/60 py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row">
         <div className="flex items-center gap-3">
-          <img src={logo.url} alt="" className="h-7 w-7 rounded-full" />
+          <img src={logo} alt="" className="h-7 w-7 rounded-full object-contain" />
           <span className="uppercase tracking-widest">Garage Britânica © {new Date().getFullYear()}</span>
         </div>
         <span className="uppercase tracking-widest">Garage Britânica · Assistência Técnica Premium</span>
