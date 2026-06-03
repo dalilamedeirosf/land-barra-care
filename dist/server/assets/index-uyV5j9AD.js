@@ -1,0 +1,309 @@
+import { jsxs, jsx } from "react/jsx-runtime";
+import { Phone, ArrowUpRight, Droplets, Cog, Disc3, Settings2, Snowflake, Gauge, Zap, CircleGauge, Wrench, PaintBucket, Car, Truck, Sofa, ShieldCheck, MapPin, Instagram, Facebook } from "lucide-react";
+import { l as logo } from "./router-DdCdAHw3.js";
+import "@tanstack/react-query";
+import "@tanstack/react-router";
+import "react";
+const heroImg = "/assets/evoque-hero-CzUAlpRt.png";
+const heroVideo = "/assets/video-MJm465qt.mp4";
+const engineImg = "/assets/engine-detail-BLTAKDa8.jpg";
+const workshopImg = "/assets/workshop-wide-r9UinT1v.png";
+const WHATSAPP = "https://wa.me/5521991983003";
+const WHATSAPP_GENERAL = "https://wa.me/5521991983003?text=Ol%C3%A1%21+Gostaria+de+agendar+um+atendimento+na+Garage+Brit%C3%A2nica.+Poderia+me+ajudar%3F";
+const serviceGroups = [{
+  title: "Manutenção & Fluidos",
+  items: [{
+    icon: Droplets,
+    label: "Troca de óleo do motor e filtro"
+  }, {
+    icon: Cog,
+    label: "Fluido de transmissão automática"
+  }, {
+    icon: Disc3,
+    label: "Fluido de freio com diagnóstico"
+  }, {
+    icon: Settings2,
+    label: "Fluido de diferencial"
+  }, {
+    icon: Snowflake,
+    label: "Serviço de ar-condicionado"
+  }]
+}, {
+  title: "Reparos & Mecânica",
+  items: [{
+    icon: Gauge,
+    label: "Diagnóstico computadorizado"
+  }, {
+    icon: Cog,
+    label: "Troca de correia dentada"
+  }, {
+    icon: Zap,
+    label: "Troca de bateria com programação"
+  }, {
+    icon: Disc3,
+    label: "Pastilhas e discos de freio"
+  }, {
+    icon: Settings2,
+    label: "Reparo de transmissão automática"
+  }, {
+    icon: CircleGauge,
+    label: "Direção hidráulica e eletrônica"
+  }, {
+    icon: Wrench,
+    label: "Motores diesel e gasolina"
+  }]
+}, {
+  title: "Especializados",
+  items: [{
+    icon: Zap,
+    label: "Elétrica e eletrônica automotiva"
+  }, {
+    icon: PaintBucket,
+    label: "Funilaria e pintura"
+  }, {
+    icon: Car,
+    label: "Vidraçaria — troca de vidros"
+  }, {
+    icon: Truck,
+    label: "Transporte de veículos (delivery)"
+  }, {
+    icon: Sofa,
+    label: "Tapeçaria e teto"
+  }, {
+    icon: CircleGauge,
+    label: "Suspensão pneumática"
+  }]
+}, {
+  title: "Consultoria",
+  items: [{
+    icon: ShieldCheck,
+    label: "Consultoria automotiva"
+  }, {
+    icon: Car,
+    label: "Auxílio na compra e venda de veículos"
+  }]
+}];
+function Landing() {
+  return /* @__PURE__ */ jsxs("main", { className: "min-h-screen bg-background text-foreground", children: [
+    /* @__PURE__ */ jsx(Nav, {}),
+    /* @__PURE__ */ jsx(Hero, {}),
+    /* @__PURE__ */ jsx(Marquee, {}),
+    /* @__PURE__ */ jsx(About, {}),
+    /* @__PURE__ */ jsx(Services, {}),
+    /* @__PURE__ */ jsx(ShowcaseStrip, {}),
+    /* @__PURE__ */ jsx(Contact, {}),
+    /* @__PURE__ */ jsx(Footer, {})
+  ] });
+}
+function Nav() {
+  return /* @__PURE__ */ jsx("header", { className: "fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto flex max-w-7xl items-center justify-between px-6 py-3", children: [
+    /* @__PURE__ */ jsxs("a", { href: "#top", className: "flex items-center gap-3", children: [
+      /* @__PURE__ */ jsx("img", { src: logo, alt: "Garage Britânica", className: "h-15 w-auto object-contain" }),
+      /* @__PURE__ */ jsxs("div", { className: "leading-tight", children: [
+        /* @__PURE__ */ jsx("div", { className: "text-display text-base tracking-wider text-cream", children: "GARAGE BRITÂNICA" }),
+        /* @__PURE__ */ jsx("div", { className: "text-[10px] uppercase tracking-[0.25em] text-muted-foreground", children: "Assistência Técnica Premium" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("nav", { className: "hidden items-center gap-8 md:flex", children: [
+      /* @__PURE__ */ jsx("a", { href: "#sobre", className: "text-sm text-muted-foreground hover:text-cream", children: "Sobre" }),
+      /* @__PURE__ */ jsx("a", { href: "#servicos", className: "text-sm text-muted-foreground hover:text-cream", children: "Serviços" }),
+      /* @__PURE__ */ jsx("a", { href: "#contato", className: "text-sm text-muted-foreground hover:text-cream", children: "Contato" })
+    ] }),
+    /* @__PURE__ */ jsxs("a", { href: WHATSAPP_GENERAL, target: "_blank", rel: "noreferrer", className: "btn-premium inline-flex items-center gap-2 rounded-sm bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent-foreground", children: [
+      /* @__PURE__ */ jsx(Phone, { className: "h-3.5 w-3.5" }),
+      " Agendar"
+    ] })
+  ] }) });
+}
+function Hero() {
+  return /* @__PURE__ */ jsxs("section", { id: "top", className: "relative isolate min-h-screen overflow-hidden pt-20 bg-grid-pattern", children: [
+    /* @__PURE__ */ jsx("video", { autoPlay: true, loop: true, muted: true, playsInline: true, poster: heroImg, style: {
+      opacity: 0.65
+    }, className: "absolute inset-0 h-full w-full object-cover select-none", children: /* @__PURE__ */ jsx("source", { src: heroVideo, type: "video/mp4" }) }),
+    /* @__PURE__ */ jsx("div", { className: "hero-overlay absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" }),
+    /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" }),
+    /* @__PURE__ */ jsx("div", { className: "absolute inset-0 grain" }),
+    /* @__PURE__ */ jsxs("div", { className: "relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-between px-6 py-16", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-cream/70 font-semibold text-shadow-sporty", children: [
+        /* @__PURE__ */ jsx("span", { className: "h-px w-10 bg-accent" }),
+        "Est. Barra da Tijuca · Rio de Janeiro"
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "max-w-4xl", children: [
+        /* @__PURE__ */ jsxs("div", { className: "mb-6 inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent text-shadow-sporty", children: [
+          /* @__PURE__ */ jsx("span", { className: "h-2 w-2 rounded-full bg-accent animate-pulse" }),
+          "Oficina Mecânica Premium & Performance"
+        ] }),
+        /* @__PURE__ */ jsxs("h1", { className: "text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty", children: [
+          /* @__PURE__ */ jsx("span", { className: "block", children: "Engenharia Automotiva" }),
+          /* @__PURE__ */ jsx("span", { className: "text-accent text-xl sm:text-3xl md:text-4xl block mt-4 font-bold tracking-wide", children: "para veículos de alta performance" })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty", children: "Um centro automotivo premium completo onde a engenharia de precisão encontra a paixão por performance. Do diagnóstico computadorizado completo à suspensão pneumática — cuidamos do seu importado no padrão que ele exige." }),
+        /* @__PURE__ */ jsxs("div", { className: "mt-10 flex flex-wrap gap-4", children: [
+          /* @__PURE__ */ jsxs("a", { href: WHATSAPP_GENERAL, target: "_blank", rel: "noreferrer", className: "btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground", children: [
+            "Agendar no WhatsApp",
+            /* @__PURE__ */ jsx(ArrowUpRight, { className: "h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" })
+          ] }),
+          /* @__PURE__ */ jsx("a", { href: "#servicos", className: "inline-flex items-center gap-3 rounded-sm border border-cream/30 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cream backdrop-blur-sm transition hover:bg-cream/10 hover:border-cream/65", children: "Nossos Serviços" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "grid gap-6 border-t border-cream/15 pt-8 text-cream/80 sm:grid-cols-3", children: [
+        /* @__PURE__ */ jsx(Stat, { n: "20+", label: "Serviços Especializados" }),
+        /* @__PURE__ */ jsx(Stat, { n: "100%", label: "Equipamentos Originais" }),
+        /* @__PURE__ */ jsx(Stat, { n: "Premium", label: "Padrão de Atendimento" })
+      ] })
+    ] })
+  ] });
+}
+function Stat({
+  n,
+  label
+}) {
+  return /* @__PURE__ */ jsxs("div", { className: "border-l-2 border-accent pl-4", children: [
+    /* @__PURE__ */ jsx("div", { className: "text-display text-3xl font-bold text-cream sm:text-4xl tracking-tight text-shadow-sporty", children: n }),
+    /* @__PURE__ */ jsx("div", { className: "mt-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold", children: label })
+  ] });
+}
+function Marquee() {
+  const words = ["Mecânica Completa", "Elétrica", "Funilaria", "Suspensão Pneumática", "Diagnóstico", "Ar-condicionado", "Transporte", "Consultoria"];
+  return /* @__PURE__ */ jsxs("div", { className: "border-y border-border bg-union py-5 overflow-hidden", children: [
+    /* @__PURE__ */ jsx("div", { className: "flex animate-[scroll_40s_linear_infinite] gap-12 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream", children: [...words, ...words, ...words].map((w, i) => /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-12", children: [
+      w,
+      " ",
+      /* @__PURE__ */ jsx("span", { className: "text-cream/40", children: "✦" })
+    ] }, i)) }),
+    /* @__PURE__ */ jsx("style", { children: `@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}` })
+  ] });
+}
+function About() {
+  return /* @__PURE__ */ jsx("section", { id: "sobre", className: "relative mx-auto max-w-7xl px-6 py-28", children: /* @__PURE__ */ jsxs("div", { className: "grid gap-16 lg:grid-cols-2 lg:items-center", children: [
+    /* @__PURE__ */ jsxs("div", { className: "relative", children: [
+      /* @__PURE__ */ jsx("img", { src: engineImg, alt: "Detalhe técnico de motor", loading: "lazy", width: 1024, height: 1024, className: "rounded-sm shadow-elegant" }),
+      /* @__PURE__ */ jsxs("div", { className: "absolute -bottom-6 -right-6 hidden h-32 w-32 items-center justify-center rounded-full bg-accent text-center text-display text-sm uppercase leading-tight tracking-widest text-accent-foreground sm:flex", children: [
+        "Premium",
+        /* @__PURE__ */ jsx("br", {}),
+        "Service"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("p", { className: "text-xs uppercase tracking-[0.4em] text-accent", children: "Sobre nós" }),
+      /* @__PURE__ */ jsxs("h2", { className: "mt-4 text-display text-4xl leading-tight sm:text-5xl", children: [
+        "Um espírito britânico na ",
+        /* @__PURE__ */ jsx("span", { className: "text-accent", children: "Barra da Tijuca" }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsx("p", { className: "mt-6 text-lg leading-relaxed text-muted-foreground", children: "Inspirados pela tradição automotiva britânica — onde a engenharia é uma forma de arte — operamos como um centro automotivo completo. Mecânica, elétrica, funilaria e consultoria sob o mesmo teto, com a precisão que carros sérios merecem." }),
+      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-4 sm:grid-cols-2", children: [["Diagnóstico", "Equipamentos computadorizados de última geração."], ["Especialistas", "Profissionais com domínio em motores diesel e gasolina."], ["Completo", "Da troca de óleo à suspensão pneumática."], ["Confiança", "Atendimento transparente e consultoria honesta."]].map(([t, d]) => /* @__PURE__ */ jsxs("div", { className: "border-l-2 border-accent/70 pl-4", children: [
+        /* @__PURE__ */ jsx("div", { className: "text-display text-base uppercase tracking-wider", children: t }),
+        /* @__PURE__ */ jsx("div", { className: "mt-1 text-sm text-muted-foreground", children: d })
+      ] }, t)) })
+    ] })
+  ] }) });
+}
+function Services() {
+  return /* @__PURE__ */ jsx("section", { id: "servicos", className: "relative border-t border-border bg-card/40 py-28 bg-grid-pattern", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6", children: [
+    /* @__PURE__ */ jsxs("div", { className: "mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end", children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("p", { className: "text-xs uppercase tracking-[0.4em] text-accent font-semibold", children: "Serviços Premium" }),
+        /* @__PURE__ */ jsxs("h2", { className: "mt-4 text-display text-4xl leading-tight sm:text-6xl uppercase", children: [
+          "Catálogo de Serviços",
+          /* @__PURE__ */ jsx("br", {}),
+          "de Alta Performance."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("p", { className: "max-w-md text-muted-foreground font-medium", children: "Tudo o que seu veículo necessita, executado com padrões rigorosos e precisão técnica — da manutenção básica à suspensão pneumática avançada. Clique em um serviço para agendar via WhatsApp." })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "grid gap-6 md:grid-cols-2", children: serviceGroups.map((g) => /* @__PURE__ */ jsxs("article", { className: "group relative overflow-hidden rounded-sm border border-border bg-background/60 p-8 transition hover:border-accent/40", children: [
+      /* @__PURE__ */ jsxs("div", { className: "mb-6 flex items-baseline justify-between border-b border-border/60 pb-4", children: [
+        /* @__PURE__ */ jsx("h3", { className: "text-display text-2xl uppercase tracking-wider text-cream", children: g.title }),
+        /* @__PURE__ */ jsx("span", { className: "text-xs uppercase tracking-widest text-muted-foreground font-semibold", children: String(g.items.length).padStart(2, "0") })
+      ] }),
+      /* @__PURE__ */ jsx("ul", { className: "grid gap-3.5", children: g.items.map(({
+        icon: Icon,
+        label
+      }) => {
+        const messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Garage Britânica.`;
+        const url = `${WHATSAPP}?text=${encodeURIComponent(messageText)}`;
+        return /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("a", { href: url, target: "_blank", rel: "noreferrer", className: "group/btn flex items-center justify-between gap-4 rounded-sm border border-border/80 bg-background/30 p-4 transition-all duration-300 hover:border-accent hover:bg-accent/5 hover:-translate-y-0.5 hover:shadow-glow-sm animate-pulse-glow-button", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4", children: [
+            /* @__PURE__ */ jsx("span", { className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/btn:bg-accent group-hover/btn:text-accent-foreground group-hover/btn:scale-105 transition-all duration-300 animate-pulse-accent", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5" }) }),
+            /* @__PURE__ */ jsx("span", { className: "text-sm font-semibold tracking-wide text-foreground/90 group-hover/btn:text-cream transition-colors", children: label })
+          ] }),
+          /* @__PURE__ */ jsx(ArrowUpRight, { className: "h-4.5 w-4.5 text-muted-foreground group-hover/btn:text-accent group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" })
+        ] }) }, label);
+      }) })
+    ] }, g.title)) })
+  ] }) });
+}
+function ShowcaseStrip() {
+  return /* @__PURE__ */ jsxs("section", { className: "relative h-[60vh] min-h-[420px] overflow-hidden", children: [
+    /* @__PURE__ */ jsx("img", { src: workshopImg, alt: "Oficina Garage Britânica", loading: "lazy", width: 1920, height: 1080, className: "absolute inset-0 h-full w-full object-cover" }),
+    /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-background/70" }),
+    /* @__PURE__ */ jsxs("div", { className: "relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center", children: [
+      /* @__PURE__ */ jsx("p", { className: "text-xs uppercase tracking-[0.5em] text-accent font-semibold", children: "Pronto para começar?" }),
+      /* @__PURE__ */ jsxs("h2", { className: "mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl uppercase", children: [
+        "Agende uma avaliação",
+        /* @__PURE__ */ jsx("br", {}),
+        "sem compromisso."
+      ] }),
+      /* @__PURE__ */ jsxs("a", { href: WHATSAPP_GENERAL, target: "_blank", rel: "noreferrer", className: "btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground", children: [
+        /* @__PURE__ */ jsx(Phone, { className: "h-4 w-4" }),
+        " Agende agora"
+      ] })
+    ] })
+  ] });
+}
+function Contact() {
+  return /* @__PURE__ */ jsx("section", { id: "contato", className: "mx-auto max-w-7xl px-6 py-28", children: /* @__PURE__ */ jsxs("div", { className: "grid gap-16 lg:grid-cols-[1.2fr_1fr]", children: [
+    /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("p", { className: "text-xs uppercase tracking-[0.4em] text-accent font-semibold", children: "Visite ou ligue" }),
+      /* @__PURE__ */ jsx("h2", { className: "mt-4 text-display text-4xl leading-tight sm:text-5xl uppercase", children: "Estamos prontos para receber você." }),
+      /* @__PURE__ */ jsxs("div", { className: "mt-10 space-y-4", children: [
+        /* @__PURE__ */ jsx(ContactRow, { icon: MapPin, title: "Endereço", lines: ["Estrada do João, 3816 — João", "Barra da Tijuca, Rio de Janeiro"], href: "https://maps.google.com/?q=Estrada+do+Joao+3816+Barra+da+Tijuca+Rio+de+Janeiro" }),
+        /* @__PURE__ */ jsx(ContactRow, { icon: Phone, title: "WhatsApp", lines: ["+55 21 99198-3003"], href: WHATSAPP_GENERAL }),
+        /* @__PURE__ */ jsx(ContactRow, { icon: Instagram, title: "Instagram", lines: ["@land.barra"], href: "https://instagram.com/land.barra" }),
+        /* @__PURE__ */ jsx(ContactRow, { icon: Facebook, title: "Facebook", lines: ["Land Barra"], href: "https://facebook.com/land.barra" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("aside", { className: "relative overflow-hidden rounded-sm border border-border bg-card p-10", children: [
+      /* @__PURE__ */ jsx("div", { className: "absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" }),
+      /* @__PURE__ */ jsx("img", { src: logo, alt: "Garage Britânica", className: "relative h-22 w-auto object-contain" }),
+      /* @__PURE__ */ jsx("h3", { className: "relative mt-6 text-display text-2xl uppercase tracking-wider", children: "Garage Britânica" }),
+      /* @__PURE__ */ jsx("p", { className: "relative mt-3 text-sm leading-relaxed text-muted-foreground", children: "Assistência técnica premium para todas as marcas. Trabalhamos com transparência, qualidade de oficina autorizada e o cuidado de quem entende de carro." }),
+      /* @__PURE__ */ jsxs("a", { href: WHATSAPP_GENERAL, target: "_blank", rel: "noreferrer", className: "btn-premium mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground", children: [
+        "Conversar agora ",
+        /* @__PURE__ */ jsx(ArrowUpRight, { className: "h-4 w-4" })
+      ] })
+    ] })
+  ] }) });
+}
+function ContactRow({
+  icon: Icon,
+  title,
+  lines,
+  href
+}) {
+  const content = /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-5", children: [
+    /* @__PURE__ */ jsx("span", { className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/contact:bg-accent group-hover/contact:text-accent-foreground transition-all duration-300", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5" }) }),
+    /* @__PURE__ */ jsxs("div", { className: "flex-1", children: [
+      /* @__PURE__ */ jsx("div", { className: "text-xs uppercase tracking-[0.3em] text-muted-foreground", children: title }),
+      lines.map((l) => /* @__PURE__ */ jsx("div", { className: "text-display text-lg text-cream", children: l }, l))
+    ] }),
+    href && /* @__PURE__ */ jsx(ArrowUpRight, { className: "ml-auto h-5 w-5 text-muted-foreground group-hover/contact:text-accent group-hover/contact:translate-x-0.5 group-hover/contact:-translate-y-0.5 transition-all duration-300" })
+  ] });
+  return href ? /* @__PURE__ */ jsx("a", { href, target: "_blank", rel: "noreferrer", className: "group/contact fine-border-laser block p-5", children: content }) : /* @__PURE__ */ jsx("div", { className: "fine-border-laser block p-5", children: content });
+}
+function Footer() {
+  return /* @__PURE__ */ jsx("footer", { className: "border-t border-border bg-card/60 py-10", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row", children: [
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
+      /* @__PURE__ */ jsx("img", { src: logo, alt: "", className: "h-12 w-auto object-contain" }),
+      /* @__PURE__ */ jsxs("span", { className: "uppercase tracking-widest", children: [
+        "Garage Britânica © ",
+        (/* @__PURE__ */ new Date()).getFullYear()
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx("span", { className: "uppercase tracking-widest", children: "Garage Britânica · Assistência Técnica Premium" })
+  ] }) });
+}
+export {
+  Landing as component
+};
