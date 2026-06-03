@@ -121,7 +121,7 @@ function Hero() {
         muted
         playsInline
         poster={heroImg}
-        style={{ opacity: 0.60 }}
+        style={{ opacity: 0.65 }}
         className="absolute inset-0 h-full w-full object-cover select-none"
       >
         <source src={heroVideo} type="video/mp4" />
