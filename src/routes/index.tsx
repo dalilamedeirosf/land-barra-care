@@ -8,7 +8,7 @@ import logo from "@/assets/garage-britanica-logo.png";
 import heroImg from "@/assets/evoque-hero.png";
 import heroVideo from "@/assets/video.mp4";
 import engineImg from "@/assets/engine-detail.jpg";
-import workshopImg from "@/assets/workshop-wide.jpg";
+import workshopImg from "@/assets/workshop-wide.png";
 
 
 
