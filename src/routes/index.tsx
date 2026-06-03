@@ -321,7 +321,7 @@ function Contact() {
           <div className="mt-10 space-y-4">
             <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do Joá, 3816 — Joá", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joa+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
             <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
-            <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://instagram.com/land.barra" />
+            <ContactRow icon={Instagram} title="Instagram" lines={["@garagebritanicarj"]} href="https://www.instagram.com/garagebritanicarj?igsh=MXAzOXB1cXN3d3NzYg%3D%3D" />
           </div>
         </div>
 
