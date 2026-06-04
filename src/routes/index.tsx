@@ -72,7 +72,6 @@ function Landing() {
       <About />
       <Services />
       <LevaTraz />
-      <ShowcaseStrip />
       <Contact />
       <Footer />
     </main>
@@ -449,37 +448,7 @@ function LevaTraz() {
   );
 }
 
-function ShowcaseStrip() {
-  return (
-    <section className="relative h-[65vh] min-h-[450px] overflow-hidden border-t border-border">
-      <img
-        src={workshopImg}
-        alt="Oficina Garage Britânica"
-        loading="lazy"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-background/85" />
-      <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
-        <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-accent font-black">
-          PRONTO PARA COMEÇAR?
-        </p>
-        <h2 className="mt-4 text-display text-4xl sm:text-6xl md:text-7xl leading-[1.1] text-cream uppercase font-black tracking-tight">
-          AGENDE UMA AVALIAÇÃO<br />SEM COMPROMISSO.
-        </h2>
-        <a
-          href={WHATSAPP_GENERAL}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-10 py-5 text-sm font-bold uppercase tracking-[0.25em] text-accent-foreground shadow-glow"
-        >
-          <Phone className="h-4.5 w-4.5" /> Agende agora
-        </a>
-      </div>
-    </section>
-  );
-}
+
 
 function Contact() {
   return (
