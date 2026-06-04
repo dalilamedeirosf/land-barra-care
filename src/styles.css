@@ -70,7 +70,7 @@
   --crimson: oklch(0.35 0.10 155);
   --racing: oklch(0.32 0.09 155);
 
-  --font-display: "Oswald", "Impact", sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.4) 0%, oklch(0.16 0.012 240 / 0.85) 60%, oklch(0.16 0.012 240) 100%);
