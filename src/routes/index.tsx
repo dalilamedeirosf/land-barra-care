@@ -15,9 +15,9 @@ import workshopImg from "@/assets/workshop-wide.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Land Barra" },
+      { title: "Garage Britânica" },
       { name: "description", content: "Assistência técnica especializada para Land Rover. Manutenção, reparos e dicas valiosas. Junte-se à nossa comunidade! Siga para atualizações e ofertas exclusivas." },
-      { property: "og:title", content: "Land Barra" },
+      { property: "og:title", content: "Garage Britânica" },
       { property: "og:description", content: "Assistência técnica especializada para Land Rover. Manutenção, reparos e dicas valiosas. Junte-se à nossa comunidade! Siga para atualizações e ofertas exclusivas." },
       { property: "og:image", content: logo },
       { property: "twitter:image", content: logo },
@@ -83,9 +83,9 @@ function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="Land Barra" className="h-15 w-auto object-contain" />
+          <img src={logo} alt="Garage Britânica" className="h-15 w-auto object-contain" />
           <div className="leading-tight">
-            <div className="text-display text-base tracking-wider text-cream">LAND BARRA</div>
+            <div className="text-display text-base tracking-wider text-cream">GARAGE BRITÂNICA</div>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Assistência Técnica Especializada</div>
           </div>
         </a>
@@ -131,7 +131,7 @@ function Hero() {
             Oficina Mecânica Especializada Land Rover
           </div>
           <h1 className="text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty">
-            <span className="block">Land Barra</span>
+            <span className="block">Garage Britânica</span>
             <span className="text-accent text-lg sm:text-2xl md:text-3xl block mt-4 font-bold tracking-wide uppercase">
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
@@ -267,7 +267,7 @@ function Services() {
               </div>
               <ul className="grid gap-3.5">
                 {g.items.map(({ icon: Icon, label }) => {
-                  let messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Land Barra.`;
+                  let messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Garage Britânica.`;
                   if (label === "Diagnóstico Computadorizado") {
                     messageText = "Olá, gostaria de informações sobre o serviço de Diagnóstico Computadorizado";
                   } else if (label.toLowerCase().includes("transmissão automática")) {
@@ -344,7 +344,7 @@ function Services() {
 function ShowcaseStrip() {
   return (
     <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-      <img src={workshopImg} alt="Oficina Land Barra" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
+      <img src={workshopImg} alt="Oficina Garage Britânica" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-background/70" />
       <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-accent font-semibold">Pronto para começar?</p>
@@ -375,8 +375,8 @@ function Contact() {
 
         <aside className="relative overflow-hidden rounded-sm border border-border bg-card p-10">
           <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
-          <img src={logo} alt="Land Barra" className="relative h-22 w-auto object-contain" />
-          <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Land Barra</h3>
+          <img src={logo} alt="Garage Britânica" className="relative h-22 w-auto object-contain" />
+          <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Garage Britânica</h3>
           <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
             Assistência técnica especializada Land Rover. Trabalhamos com transparência, qualidade e o cuidado de quem entende de Land Rover.
           </p>
@@ -422,9 +422,9 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row">
         <div className="flex items-center gap-3">
           <img src={logo} alt="" className="h-12 w-auto object-contain" />
-          <span className="uppercase tracking-widest">Land Barra © {new Date().getFullYear()}</span>
+          <span className="uppercase tracking-widest">Garage Britânica © {new Date().getFullYear()}</span>
         </div>
-        <span className="uppercase tracking-widest">Land Barra · Assistência Técnica Especializada</span>
+        <span className="uppercase tracking-widest">Garage Britânica · Assistência Técnica Especializada</span>
       </div>
     </footer>
   );
