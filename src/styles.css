@@ -56,7 +56,7 @@
   --muted: oklch(0.24 0.012 240);
   --muted-foreground: oklch(0.7 0.02 80);
 
-  --accent: oklch(0.58 0.23 24);                /* sporty high-performance red */
+  --accent: oklch(0.34 0.09 155);                /* premium British racing green */
   --accent-foreground: oklch(0.96 0.02 85);
 
   --destructive: oklch(0.55 0.22 28);
@@ -64,19 +64,19 @@
 
   --border: oklch(0.28 0.012 240);
   --input: oklch(0.28 0.012 240);
-  --ring: oklch(0.58 0.23 24);
+  --ring: oklch(0.34 0.09 155);
 
   --cream: oklch(0.94 0.04 85);
-  --crimson: oklch(0.5 0.2 28);
+  --crimson: oklch(0.25 0.07 155);
   --racing: oklch(0.32 0.09 155);
 
   --font-display: "Oswald", "Impact", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.4) 0%, oklch(0.16 0.012 240 / 0.85) 60%, oklch(0.16 0.012 240) 100%);
-  --gradient-union: linear-gradient(135deg, oklch(0.32 0.09 155) 0%, oklch(0.58 0.23 24) 100%);
+  --gradient-union: linear-gradient(135deg, oklch(0.24 0.06 155) 0%, oklch(0.40 0.10 150) 100%);
   --shadow-elegant: 0 30px 80px -20px oklch(0 0 0 / 0.6);
-  --shadow-glow: 0 0 40px oklch(0.58 0.23 24 / 0.3);
+  --shadow-glow: 0 0 40px oklch(0.34 0.09 155 / 0.3);
 }
 
 .dark { color-scheme: dark; }
@@ -98,21 +98,21 @@
 
 @keyframes pulse-accent {
   0%, 100% {
-    box-shadow: 0 0 0 0 oklch(0.58 0.23 24 / 0.6);
+    box-shadow: 0 0 0 0 oklch(0.34 0.09 155 / 0.6);
   }
   50% {
-    box-shadow: 0 0 0 6px oklch(0.58 0.23 24 / 0);
+    box-shadow: 0 0 0 6px oklch(0.34 0.09 155 / 0);
   }
 }
 
 @keyframes pulse-glow-button {
   0%, 100% {
-    box-shadow: 0 0 5px oklch(0.58 0.23 24 / 0.1);
+    box-shadow: 0 0 5px oklch(0.34 0.09 155 / 0.1);
     border-color: oklch(0.28 0.012 240);
   }
   50% {
-    box-shadow: 0 0 15px oklch(0.58 0.23 24 / 0.35);
-    border-color: oklch(0.58 0.23 24 / 0.7);
+    box-shadow: 0 0 15px oklch(0.34 0.09 155 / 0.35);
+    border-color: oklch(0.34 0.09 155 / 0.7);
   }
 }
 
@@ -130,10 +130,10 @@
 
 @keyframes pulse-premium-glow {
   0%, 100% {
-    box-shadow: 0 0 0 0 oklch(0.58 0.23 24 / 0.45), 0 4px 20px oklch(0.58 0.23 24 / 0.25);
+    box-shadow: 0 0 0 0 oklch(0.34 0.09 155 / 0.45), 0 4px 20px oklch(0.34 0.09 155 / 0.25);
   }
   50% {
-    box-shadow: 0 0 0 8px oklch(0.58 0.23 24 / 0), 0 4px 20px oklch(0.58 0.23 24 / 0.25);
+    box-shadow: 0 0 0 8px oklch(0.34 0.09 155 / 0), 0 4px 20px oklch(0.34 0.09 155 / 0.25);
   }
 }
 
@@ -181,7 +181,7 @@
     text-shadow: 0 2px 12px oklch(0 0 0 / 0.9);
   }
   .shadow-glow-sm {
-    box-shadow: 0 0 15px oklch(0.58 0.23 24 / 0.2);
+    box-shadow: 0 0 15px oklch(0.34 0.09 155 / 0.2);
   }
 
   /* Premium maximum quality button */
@@ -211,8 +211,8 @@
 
   .btn-premium:hover {
     transform: translateY(-2px) scale(1.03);
-    background-color: oklch(0.61 0.24 24) !important;
-    box-shadow: 0 12px 30px oklch(0.58 0.23 24 / 0.5), 0 0 35px oklch(0.58 0.23 24 / 0.35) !important;
+    background-color: oklch(0.42 0.11 150) !important;
+    box-shadow: 0 12px 30px oklch(0.34 0.09 155 / 0.5), 0 0 35px oklch(0.34 0.09 155 / 0.35) !important;
   }
 
   .btn-premium:active {
@@ -239,9 +239,9 @@
     background: conic-gradient(
       from 0deg,
       transparent 45%,
-      oklch(0.58 0.23 24) 49%,
+      oklch(0.34 0.09 155) 49%,
       oklch(0.94 0.04 85) 50%,
-      oklch(0.58 0.23 24) 51%,
+      oklch(0.34 0.09 155) 51%,
       transparent 55%
     );
     animation: rotate-border 5s linear infinite;
@@ -274,7 +274,7 @@
   .fine-border-laser:hover {
     border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px oklch(0.58 0.23 24 / 0.25);
+    box-shadow: 0 10px 25px oklch(0.34 0.09 155 / 0.25);
     background-color: oklch(0.21 0.012 240 / 0.85);
   }
 }
