@@ -7,6 +7,7 @@ import {
 import logo from "@/assets/garage-britanica-logo.png";
 import heroImg from "@/assets/evoque-hero.png";
 import heroVideo from "@/assets/video.mp4";
+import levaTrazVideo from "@/assets/video2.mp4";
 import engineImg from "@/assets/engine-detail.jpg";
 import workshopImg from "@/assets/workshop-wide.png";
 
@@ -385,14 +386,18 @@ function LevaTraz() {
             </svg>
           </div>
 
-          {/* Central Car Image (Evoque) */}
-          <div className="absolute w-[260px] sm:w-[350px] md:w-[420px] z-10 transition-transform duration-500 hover:scale-105">
-            <div className="absolute inset-0 bg-accent/15 rounded-full blur-2xl animate-pulse pointer-events-none" />
-            <img
-              src={heroImg}
-              alt="Land Rover Evoque"
-              className="w-full h-auto object-contain drop-shadow-[0_15px_40px_rgba(0,168,89,0.35)] relative z-10"
-            />
+          {/* Central Video */}
+          <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] z-10 transition-transform duration-500 hover:scale-105 flex items-center justify-center">
+            <div className="absolute inset-0 bg-accent/20 rounded-lg blur-2xl animate-pulse pointer-events-none" />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover rounded-lg border border-accent/30 shadow-[0_15px_40px_rgba(0,168,89,0.35)] relative z-10"
+            >
+              <source src={levaTrazVideo} type="video/mp4" />
+            </video>
           </div>
 
           {/* Nodes (DELIVERY, MECÂNICA, ESTÉTICA) */}
