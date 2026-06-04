@@ -136,8 +136,11 @@ function Hero() {
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
-            Assistência técnica especializada para Land Rover na Barra da Tijuca. Manutenção e reparos de alta precisão com o cuidado que seu veículo merece.
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty uppercase font-black tracking-wide">
+            OFICINA COMPLETA: SEU CARRO SEMPRE PRONTO PARA A <span className="text-accent">PRÓXIMA AVENTURA!</span>
+            <span className="block mt-4 text-sm sm:text-base font-semibold tracking-wider normal-case text-cream/80">
+              Tudo o que a sua <span className="text-accent font-bold">Land Rover</span> precisa!
+            </span>
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground">
