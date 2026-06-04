@@ -15,10 +15,10 @@ import workshopImg from "@/assets/workshop-wide.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Garage Britânica — Assistência Técnica Premium" },
-      { name: "description", content: "Centro automotivo premium na Barra da Tijuca: mecânica completa, elétrica, funilaria, suspensão pneumática e consultoria automotiva." },
-      { property: "og:title", content: "Garage Britânica" },
-      { property: "og:description", content: "Assistência técnica premium para o seu veículo na Barra da Tijuca." },
+      { title: "Land Barra" },
+      { name: "description", content: "Assistência técnica especializada para Land Rover. Manutenção, reparos e dicas valiosas. Junte-se à nossa comunidade! Siga para atualizações e ofertas exclusivas." },
+      { property: "og:title", content: "Land Barra" },
+      { property: "og:description", content: "Assistência técnica especializada para Land Rover. Manutenção, reparos e dicas valiosas. Junte-se à nossa comunidade! Siga para atualizações e ofertas exclusivas." },
       { property: "og:image", content: logo },
       { property: "twitter:image", content: logo },
     ],
@@ -32,43 +32,33 @@ const WHATSAPP_GENERAL = "https://wa.me/5521991983003?text=Ol%C3%A1%21+Gostaria+
 
 const serviceGroups = [
   {
-    title: "Manutenção & Fluidos",
+    title: "Serviços",
     items: [
-      { icon: Droplets, label: "Troca de óleo do motor e filtro" },
-      { icon: Cog, label: "Fluido de transmissão automática" },
-      { icon: Disc3, label: "Fluido de freio com diagnóstico" },
-      { icon: Settings2, label: "Fluido de diferencial" },
-      { icon: Snowflake, label: "Serviço de ar-condicionado" },
+      { icon: Gauge, label: "Diagnóstico Computadorizado" },
+      { icon: Cog, label: "Substituição do fluido transmissão automática" },
+      { icon: Disc3, label: "Substituição fluido freio computadorizado" },
+      { icon: Wrench, label: "Substituição correia dentada" },
+      { icon: Zap, label: "Substituição da bateria com programação" },
+      { icon: Droplets, label: "Substituição óleo e filtros do motor" },
+      { icon: Disc3, label: "Substituição pastilhas e discos freios" },
+      { icon: Cog, label: "Reparo de câmbio automático" },
+      { icon: CircleGauge, label: "Reparo caixa direção hidráulica e eletrônica" },
+      { icon: Wrench, label: "Reparo do motor diesel e gasolina" },
+      { icon: Zap, label: "Serviço de elétrica e eletrônica" },
+      { icon: Car, label: "Serviço de vidraçaria" },
+      { icon: PaintBucket, label: "Serviço de repintura e funilaria" },
+      { icon: Truck, label: "Serviço de leva e tráz seu veículo" },
+      { icon: Sofa, label: "Serviço de capotaria banco e teto" },
+      { icon: Settings2, label: "Serviço de troca fluidos do diferencial" },
+      { icon: CircleGauge, label: "Serviço de suspensão pneumática" },
+      { icon: Snowflake, label: "Serviço de ar condicionado" },
     ],
   },
   {
-    title: "Reparos & Mecânica",
+    title: "Consultorias",
     items: [
-      { icon: Gauge, label: "Diagnóstico computadorizado" },
-      { icon: Cog, label: "Troca de correia dentada" },
-      { icon: Zap, label: "Troca de bateria com programação" },
-      { icon: Disc3, label: "Pastilhas e discos de freio" },
-      { icon: Settings2, label: "Reparo de transmissão automática" },
-      { icon: CircleGauge, label: "Direção hidráulica e eletrônica" },
-      { icon: Wrench, label: "Motores diesel e gasolina" },
-    ],
-  },
-  {
-    title: "Especializados",
-    items: [
-      { icon: Zap, label: "Elétrica e eletrônica automotiva" },
-      { icon: PaintBucket, label: "Funilaria e pintura" },
-      { icon: Car, label: "Vidraçaria — troca de vidros" },
-      { icon: Truck, label: "Transporte de veículos (delivery)" },
-      { icon: Sofa, label: "Tapeçaria e teto" },
-      { icon: CircleGauge, label: "Suspensão pneumática" },
-    ],
-  },
-  {
-    title: "Consultoria",
-    items: [
-      { icon: ShieldCheck, label: "Consultoria automotiva" },
-      { icon: Car, label: "Auxílio na compra e venda de veículos" },
+      { icon: ShieldCheck, label: "Serviço de consultoria automotiva" },
+      { icon: Car, label: "Serviço de compra e venda do seu veículo" },
     ],
   },
 ];
@@ -93,10 +83,10 @@ function Nav() {
     <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="Garage Britânica" className="h-15 w-auto object-contain" />
+          <img src={logo} alt="Land Barra" className="h-15 w-auto object-contain" />
           <div className="leading-tight">
-            <div className="text-display text-base tracking-wider text-cream">GARAGE BRITÂNICA</div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Assistência Técnica Premium</div>
+            <div className="text-display text-base tracking-wider text-cream">LAND BARRA</div>
+            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Assistência Técnica Especializada</div>
           </div>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -138,17 +128,16 @@ function Hero() {
         <div className="max-w-4xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent text-shadow-sporty">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            Oficina Mecânica Premium & Performance
+            Oficina Mecânica Especializada Land Rover
           </div>
           <h1 className="text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty">
-            <span className="block">Engenharia Automotiva</span>
+            <span className="block">Land Barra</span>
             <span className="text-accent text-xl sm:text-3xl md:text-4xl block mt-4 font-bold tracking-wide">
-              para veículos de alta performance
+              Mecânica Especializada Land Rover
             </span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
-            Um centro automotivo premium completo onde a engenharia de precisão encontra a paixão por performance.
-            Do diagnóstico computadorizado completo à suspensão pneumática — cuidamos do seu importado no padrão que ele exige.
+            Assistência técnica especializada para Land Rover na Barra da Tijuca. Manutenção e reparos de alta precisão com o cuidado que seu veículo merece.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground">
@@ -156,7 +145,7 @@ function Hero() {
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
             <a href="#servicos" className="inline-flex items-center gap-3 rounded-sm border border-cream/30 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-cream backdrop-blur-sm transition hover:bg-cream/10 hover:border-cream/65">
-              Nossos Serviços
+              Ver Serviços
             </a>
           </div>
         </div>
@@ -181,7 +170,26 @@ function Stat({ n, label }: { n: string; label: string }) {
 }
 
 function Marquee() {
-  const words = ["Mecânica Completa", "Elétrica", "Funilaria", "Suspensão Pneumática", "Diagnóstico", "Ar-condicionado", "Transporte", "Consultoria"];
+  const words = [
+    "Diagnóstico Computadorizado",
+    "Transmissão Automática",
+    "Fluido de Freio",
+    "Correia Dentada",
+    "Bateria",
+    "Óleo e Filtros",
+    "Pastilhas e Discos",
+    "Câmbio Automático",
+    "Direção Hidráulica",
+    "Motor Diesel e Gasolina",
+    "Elétrica e Eletrônica",
+    "Vidraçaria",
+    "Repintura e Funilaria",
+    "Leva e Tráz",
+    "Capotaria",
+    "Fluidos do Diferencial",
+    "Suspensão Pneumática",
+    "Ar Condicionado"
+  ];
   return (
     <div className="border-y border-border bg-union py-5 overflow-hidden">
       <div className="flex animate-[scroll_10s_linear_infinite] gap-12 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream">
@@ -203,25 +211,23 @@ function About() {
         <div className="relative">
           <img src={engineImg} alt="Detalhe técnico de motor" loading="lazy" width={1024} height={1024} className="rounded-sm shadow-elegant" />
           <div className="absolute -bottom-6 -right-6 hidden h-32 w-32 items-center justify-center rounded-full bg-accent text-center text-display text-sm uppercase leading-tight tracking-widest text-accent-foreground sm:flex">
-            Premium<br />Service
+            Mecânica<br />Especializada
           </div>
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-accent">Sobre nós</p>
           <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl">
-            Um espírito britânico na <span className="text-accent">Barra da Tijuca</span>.
+            Mecânica Especializada <span className="text-accent">Land Rover</span>.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Inspirados pela tradição automotiva britânica — onde a engenharia é uma forma de
-            arte — operamos como um centro automotivo completo. Mecânica, elétrica, funilaria
-            e consultoria sob o mesmo teto, com a precisão que carros sérios merecem.
+            Oferecemos serviços de manutenção preventiva e corretiva com diagnóstico computadorizado de alta tecnologia. Equipe altamente capacitada para cuidar de todos os modelos Land Rover na Barra da Tijuca.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {[
-              ["Diagnóstico", "Equipamentos computadorizados de última geração."],
-              ["Especialistas", "Profissionais com domínio em motores diesel e gasolina."],
-              ["Completo", "Da troca de óleo à suspensão pneumática."],
-              ["Confiança", "Atendimento transparente e consultoria honesta."],
+              ["Diagnóstico", "Equipamentos computadorizados originais de última geração."],
+              ["Especialistas", "Profissionais certificados com anos de experiência em Land Rover."],
+              ["Serviços", "Substituição de fluidos, correias, suspensão pneumática e câmbio."],
+              ["Qualidade", "Compromisso com peças de alto padrão e transparência total."],
             ].map(([t, d]) => (
               <div key={t} className="border-l-2 border-accent/70 pl-4">
                 <div className="text-display text-base uppercase tracking-wider">{t}</div>
@@ -261,7 +267,49 @@ function Services() {
               </div>
               <ul className="grid gap-3.5">
                 {g.items.map(({ icon: Icon, label }) => {
-                  const messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Garage Britânica.`;
+                  let messageText = `Olá! Gostaria de agendar o serviço de *${label}* na Land Barra.`;
+                  if (label === "Diagnóstico Computadorizado") {
+                    messageText = "Olá, gostaria de informações sobre o serviço de Diagnóstico Computadorizado";
+                  } else if (label.toLowerCase().includes("transmissão automática")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO DO FLUIDO TRANSMISSÃO AUTOMÁTICA";
+                  } else if (label.toLowerCase().includes("fluido freio computadorizado")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO FLUIDO FREIO COMPUTADORIZADO";
+                  } else if (label.toLowerCase().includes("correia dentada")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO CORREIA DENTADA";
+                  } else if (label.toLowerCase().includes("bateria com programação")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO DA BATERIA COM PROGRAMAÇÃO";
+                  } else if (label.toLowerCase().includes("óleo e filtros do motor")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO ÓLEO E FILTROS DO MOTOR";
+                  } else if (label.toLowerCase().includes("pastilhas e discos freios")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de SUBSTITUIÇÃO PASTILHAS E DISCOS FREIOS";
+                  } else if (label.toLowerCase().includes("reparo de câmbio automático")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de REPARO DE CÂMBIO AUTOMÁTICO";
+                  } else if (label.toLowerCase().includes("direção hidráulica e eletrônica")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de REPARO CAIXA DIREÇÃO HIDRÁULICA E ELETRÔNICA";
+                  } else if (label.toLowerCase().includes("motor diesel e gasolina")) {
+                    messageText = "Olá, gostaria de informações sobre o serviço de REPARO DO MOTOR DIESEL E GASOLINA";
+                  } else if (label.toLowerCase().includes("elétrica e eletrônica")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE ELÉTRICA E ELETRÔNICA";
+                  } else if (label.toLowerCase().includes("serviço de vidraçaria")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE VIDRAÇARIA";
+                  } else if (label.toLowerCase().includes("repintura e funilaria")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE REPINTURA E FUNILARIA";
+                  } else if (label.toLowerCase().includes("leva e tráz seu veículo")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE LEVA E TRÁZ SEU VEÍCULO";
+                  } else if (label.toLowerCase().includes("capotaria banco e teto")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE CAPOTARIA BANCO E TETO";
+                  } else if (label.toLowerCase().includes("fluidos do diferencial")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE TROCA FLUIDOS DO DIFERENCIAL";
+                  } else if (label.toLowerCase().includes("suspensão pneumática")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE SUSPENSÃO PNEUMÁTICA";
+                  } else if (label.toLowerCase().includes("ar condicionado")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE AR CONDICIONADO";
+                  } else if (label.toLowerCase().includes("consultoria automotiva")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE CONSULTORIA AUTOMATIVA ";
+                  } else if (label.toLowerCase().includes("compra e venda do seu veículo")) {
+                    messageText = "Olá, gostaria de informações sobre o SERVIÇO DE COMPRA E VENDA DO SEU VEÍCULO";
+                  }
+
                   const url = `${WHATSAPP}?text=${encodeURIComponent(messageText)}`;
                   return (
                     <li key={label}>
@@ -296,7 +344,7 @@ function Services() {
 function ShowcaseStrip() {
   return (
     <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-      <img src={workshopImg} alt="Oficina Garage Britânica" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
+      <img src={workshopImg} alt="Oficina Land Barra" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-background/70" />
       <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-accent font-semibold">Pronto para começar?</p>
@@ -321,17 +369,16 @@ function Contact() {
           <div className="mt-10 space-y-4">
             <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do Joá, 3816 — Joá", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joa+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
             <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
-            <ContactRow icon={Instagram} title="Instagram" lines={["@garagebritanicarj"]} href="https://www.instagram.com/garagebritanicarj?igsh=MXAzOXB1cXN3d3NzYg%3D%3D" />
+            <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://www.instagram.com/land.barra?igsh=MTYxMmZreTJmcXkyMA==" />
           </div>
         </div>
 
         <aside className="relative overflow-hidden rounded-sm border border-border bg-card p-10">
           <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
-          <img src={logo} alt="Garage Britânica" className="relative h-22 w-auto object-contain" />
-          <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Garage Britânica</h3>
+          <img src={logo} alt="Land Barra" className="relative h-22 w-auto object-contain" />
+          <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Land Barra</h3>
           <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
-            Assistência técnica premium para todas as marcas. Trabalhamos com transparência,
-            qualidade de oficina autorizada e o cuidado de quem entende de carro.
+            Assistência técnica especializada Land Rover. Trabalhamos com transparência, qualidade e o cuidado de quem entende de Land Rover.
           </p>
           <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground">
             Conversar agora <ArrowUpRight className="h-4 w-4" />
@@ -375,9 +422,9 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row">
         <div className="flex items-center gap-3">
           <img src={logo} alt="" className="h-12 w-auto object-contain" />
-          <span className="uppercase tracking-widest">Garage Britânica © {new Date().getFullYear()}</span>
+          <span className="uppercase tracking-widest">Land Barra © {new Date().getFullYear()}</span>
         </div>
-        <span className="uppercase tracking-widest">Garage Britânica · Assistência Técnica Premium</span>
+        <span className="uppercase tracking-widest">Land Barra · Assistência Técnica Especializada</span>
       </div>
     </footer>
   );
