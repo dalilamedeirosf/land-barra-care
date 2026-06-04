@@ -132,8 +132,8 @@ function Hero() {
           </div>
           <h1 className="text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty">
             <span className="block">Land Barra</span>
-            <span className="text-accent text-xl sm:text-3xl md:text-4xl block mt-4 font-bold tracking-wide">
-              Mecânica Especializada Land Rover
+            <span className="text-accent text-lg sm:text-2xl md:text-3xl block mt-4 font-bold tracking-wide uppercase">
+              Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
