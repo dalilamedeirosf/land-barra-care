@@ -146,6 +146,12 @@
   }
 }
 
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
 @layer utilities {
   .text-display { font-family: var(--font-display); }
   .bg-union { background-image: var(--gradient-union); }

@@ -71,6 +71,7 @@ function Landing() {
       <Marquee />
       <About />
       <Services />
+      <LevaTraz />
       <ShowcaseStrip />
       <Contact />
       <Footer />
@@ -136,9 +137,6 @@ function Hero() {
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
-            Assistência técnica especializada para Land Rover na Barra da Tijuca. Manutenção e reparos de alta precisão com o cuidado que seu veículo merece.
-          </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground">
               Agendar no WhatsApp
@@ -329,18 +327,159 @@ function Services() {
   );
 }
 
+function LevaTraz() {
+  return (
+    <section id="leva-traz" className="relative border-t border-border bg-card/25 py-24 overflow-hidden bg-grid-pattern">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-display text-6xl sm:text-7xl md:text-8xl leading-none font-black text-accent tracking-tighter uppercase">
+            LEVA & TRAZ
+          </h2>
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-cream/90 font-semibold max-w-2xl mx-auto">
+            O ciclo perfeito para o seu veículo sair rodando como novo.
+          </p>
+        </div>
+
+        {/* Circular Diagram on Desktop / Stacked List on Mobile */}
+        <div className="relative mx-auto max-w-3xl h-[420px] sm:h-[480px] md:h-[520px] flex items-center justify-center">
+          
+          {/* SVG Animated Arrows (Desktop only) */}
+          <div className="absolute inset-0 hidden md:block">
+            <svg className="w-full h-full pointer-events-none" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 1.5 L8 5 L0 8.5 Z" fill="currentColor" className="text-accent" />
+                </marker>
+              </defs>
+              
+              {/* Arrow 1: DELIVERY to MECÂNICA */}
+              <path
+                d="M 270 120 C 180 160 120 250 135 320"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeDasharray="6 6"
+                className="text-accent/60 animate-[dash_2s_linear_infinite]"
+                markerEnd="url(#arrowhead)"
+              />
+              
+              {/* Arrow 2: MECÂNICA to ESTÉTICA */}
+              <path
+                d="M 170 380 C 250 410 350 410 430 380"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeDasharray="6 6"
+                className="text-accent/60 animate-[dash_2s_linear_infinite]"
+                markerEnd="url(#arrowhead)"
+              />
+              
+              {/* Arrow 3: ESTÉTICA to DELIVERY */}
+              <path
+                d="M 465 320 C 480 250 420 160 330 120"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeDasharray="6 6"
+                className="text-accent/60 animate-[dash_2s_linear_infinite]"
+                markerEnd="url(#arrowhead)"
+              />
+            </svg>
+          </div>
+
+          {/* Central Car Image (Evoque) */}
+          <div className="absolute w-[260px] sm:w-[350px] md:w-[420px] z-10 transition-transform duration-500 hover:scale-105">
+            <div className="absolute inset-0 bg-accent/15 rounded-full blur-2xl animate-pulse pointer-events-none" />
+            <img
+              src={heroImg}
+              alt="Land Rover Evoque"
+              className="w-full h-auto object-contain drop-shadow-[0_15px_40px_rgba(0,168,89,0.35)] relative z-10"
+            />
+          </div>
+
+          {/* Nodes (DELIVERY, MECÂNICA, ESTÉTICA) */}
+          
+          {/* Node 1: DELIVERY (Top Center) */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 md:top-4">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <MapPin className="h-7 w-7 text-accent animate-bounce" />
+                </div>
+                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
+                  DELIVERY
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Node 2: MECÂNICA (Bottom Left) */}
+          <div className="absolute bottom-6 left-4 z-20 md:bottom-16 md:left-12">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Wrench className="h-7 w-7 text-accent animate-pulse" />
+                </div>
+                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
+                  MECÂNICA
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Node 3: ESTÉTICA (Bottom Right) */}
+          <div className="absolute bottom-6 right-4 z-20 md:bottom-16 md:right-12">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Droplets className="h-7 w-7 text-accent" />
+                </div>
+                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
+                  ESTÉTICA
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ShowcaseStrip() {
   return (
-    <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-      <img src={workshopImg} alt="Oficina Garage Britânica" loading="lazy" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-background/70" />
-      <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
-        <p className="text-xs uppercase tracking-[0.5em] text-accent font-semibold">Pronto para começar?</p>
-        <h2 className="mt-6 text-display text-4xl leading-[1.05] text-cream sm:text-6xl md:text-7xl uppercase">
-          Agende uma avaliação<br />sem compromisso.
+    <section className="relative h-[65vh] min-h-[450px] overflow-hidden border-t border-border">
+      <img
+        src={workshopImg}
+        alt="Oficina Garage Britânica"
+        loading="lazy"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-background/85" />
+      <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
+        <img
+          src={logo}
+          alt="Logo Garage Britânica"
+          className="h-20 sm:h-24 w-auto object-contain mb-8 animate-pulse-accent rounded-full p-1 bg-background/40"
+        />
+        <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-accent font-black">
+          PRONTO PARA COMEÇAR?
+        </p>
+        <h2 className="mt-4 text-display text-4xl sm:text-6xl md:text-7xl leading-[1.1] text-cream uppercase font-black tracking-tight">
+          AGENDE UMA AVALIAÇÃO<br />SEM COMPROMISSO.
         </h2>
-        <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-accent-foreground">
-          <Phone className="h-4 w-4" /> Agende agora
+        <a
+          href={WHATSAPP_GENERAL}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-premium mt-10 inline-flex items-center gap-3 rounded-sm bg-accent px-10 py-5 text-sm font-bold uppercase tracking-[0.25em] text-accent-foreground shadow-glow"
+        >
+          <Phone className="h-4.5 w-4.5" /> Agende agora
         </a>
       </div>
     </section>
@@ -349,29 +488,14 @@ function ShowcaseStrip() {
 
 function Contact() {
   return (
-    <section id="contato" className="mx-auto max-w-7xl px-6 py-28">
-      <div className="grid gap-16 lg:grid-cols-[1.2fr_1fr]">
-        <div>
-          <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">Visite ou ligue</p>
-          <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl uppercase">Estamos prontos para receber você.</h2>
-          <div className="mt-10 space-y-4">
-            <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do Joá, 3816 — Joá", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joa+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
-            <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
-            <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://www.instagram.com/land.barra?igsh=MTYxMmZreTJmcXkyMA==" />
-          </div>
+    <section id="contato" className="mx-auto max-w-4xl px-6 py-28">
+      <div className="text-center">
+        <h2 className="text-display text-4xl leading-tight sm:text-5xl uppercase mb-12">Estamos prontos para receber você.</h2>
+        <div className="space-y-4 max-w-2xl mx-auto text-left">
+          <ContactRow icon={MapPin} title="Endereço" lines={["Estrada do Joá, 3816 — Joá", "Barra da Tijuca, Rio de Janeiro"]} href="https://maps.google.com/?q=Estrada+do+Joa+3816+Barra+da+Tijuca+Rio+de+Janeiro" />
+          <ContactRow icon={Phone} title="WhatsApp" lines={["+55 21 99198-3003"]} href={WHATSAPP_GENERAL} />
+          <ContactRow icon={Instagram} title="Instagram" lines={["@land.barra"]} href="https://www.instagram.com/land.barra?igsh=MTYxMmZreTJmcXkyMA==" />
         </div>
-
-        <aside className="relative overflow-hidden rounded-sm border border-border bg-card p-10">
-          <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
-          <img src={logo} alt="Garage Britânica" className="relative h-22 w-auto object-contain" />
-          <h3 className="relative mt-6 text-display text-2xl uppercase tracking-wider">Garage Britânica</h3>
-          <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
-            Assistência técnica especializada Land Rover. Trabalhamos com transparência, qualidade e o cuidado de quem entende de Land Rover.
-          </p>
-          <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium mt-8 inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-foreground">
-            Conversar agora <ArrowUpRight className="h-4 w-4" />
-          </a>
-        </aside>
       </div>
     </section>
   );
