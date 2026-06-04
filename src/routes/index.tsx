@@ -136,11 +136,8 @@ function Hero() {
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty uppercase font-black tracking-wide">
-            OFICINA COMPLETA: SEU CARRO SEMPRE PRONTO PARA A <span className="text-accent">PRÓXIMA AVENTURA!</span>
-            <span className="block mt-4 text-sm sm:text-base font-semibold tracking-wider normal-case text-cream/80">
-              Tudo o que a sua <span className="text-accent font-bold">Land Rover</span> precisa!
-            </span>
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg text-shadow-sporty">
+            Assistência técnica especializada para Land Rover na Barra da Tijuca. Manutenção e reparos de alta precisão com o cuidado que seu veículo merece.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href={WHATSAPP_GENERAL} target="_blank" rel="noreferrer" className="btn-premium group inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-accent-foreground">
@@ -219,25 +216,13 @@ function About() {
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-accent">Sobre nós</p>
-          <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl">
-            Mecânica Especializada <span className="text-accent">Land Rover</span>.
+          <h2 className="mt-4 text-display text-3xl leading-tight sm:text-4xl font-black uppercase tracking-wide">
+            OFICINA COMPLETA: SEU CARRO SEMPRE PRONTO PARA A <span className="text-accent">PRÓXIMA AVENTURA!</span>
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Oferecemos serviços de manutenção preventiva e corretiva com diagnóstico computadorizado de alta tecnologia. Equipe altamente capacitada para cuidar de todos os modelos Land Rover na Barra da Tijuca.
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground font-semibold">
+            Tudo o que a sua <span className="text-accent font-bold">Land Rover</span> precisa!
           </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {[
-              ["Diagnóstico", "Equipamentos computadorizados originais de última geração."],
-              ["Especialistas", "Profissionais certificados com anos de experiência em Land Rover."],
-              ["Serviços", "Substituição de fluidos, correias, suspensão pneumática e câmbio."],
-              ["Qualidade", "Compromisso com peças de alto padrão e transparência total."],
-            ].map(([t, d]) => (
-              <div key={t} className="border-l-2 border-accent/70 pl-4">
-                <div className="text-display text-base uppercase tracking-wider">{t}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{d}</div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </div>
     </section>
