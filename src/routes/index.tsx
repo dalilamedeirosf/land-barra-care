@@ -131,11 +131,11 @@ function Hero() {
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
             Oficina Mecânica Especializada Land Rover
           </div>
-          <h1 className="text-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] font-black uppercase tracking-tighter text-shadow-sporty">
+          <h1 className="text-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] font-bold uppercase tracking-wider text-shadow-sporty">
             <span className="block text-transparent bg-clip-text bg-gradient-to-b from-cream via-[#fbfbf9] to-[#cccccc] drop-shadow-[0_4px_20px_rgba(0,168,89,0.3)]">
               Garage Britânica
             </span>
-            <span className="text-accent text-xl sm:text-3xl md:text-4xl block mt-6 font-bold tracking-wide uppercase drop-shadow-[0_0_15px_rgba(0,168,89,0.6)]">
+            <span className="font-sans text-accent text-lg sm:text-2xl md:text-3xl block mt-6 font-semibold tracking-wide uppercase drop-shadow-[0_0_15px_rgba(0,168,89,0.5)]">
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
