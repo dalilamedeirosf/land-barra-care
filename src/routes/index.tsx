@@ -131,9 +131,11 @@ function Hero() {
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
             Oficina Mecânica Especializada Land Rover
           </div>
-          <h1 className="text-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] text-cream font-black uppercase tracking-tighter text-shadow-sporty">
-            <span className="block">Garage Britânica</span>
-            <span className="text-accent text-lg sm:text-2xl md:text-3xl block mt-4 font-bold tracking-wide uppercase">
+          <h1 className="text-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] font-black uppercase tracking-tighter text-shadow-sporty">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-cream via-[#fbfbf9] to-[#cccccc] drop-shadow-[0_4px_20px_rgba(0,168,89,0.3)]">
+              Garage Britânica
+            </span>
+            <span className="text-accent text-xl sm:text-3xl md:text-4xl block mt-6 font-bold tracking-wide uppercase drop-shadow-[0_0_15px_rgba(0,168,89,0.6)]">
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
@@ -168,34 +170,51 @@ function Stat({ n, label }: { n: string; label: string }) {
 }
 
 function Marquee() {
-  const words = [
-    "Diagnóstico Computadorizado",
-    "Transmissão Automática",
-    "Fluido de Freio",
-    "Correia Dentada",
-    "Bateria",
-    "Óleo e Filtros",
-    "Pastilhas e Discos",
-    "Câmbio Automático",
-    "Direção Hidráulica",
-    "Motor Diesel e Gasolina",
-    "Elétrica e Eletrônica",
-    "Vidraçaria",
-    "Repintura e Funilaria",
-    "Leva e Tráz",
-    "Capotaria",
-    "Fluidos do Diferencial",
-    "Suspensão Pneumática",
-    "Ar Condicionado"
+  const items = [
+    { text: "Diagnóstico Computadorizado", icon: Gauge },
+    { text: "Transmissão Automática", icon: Cog },
+    { text: "Fluido de Freio", icon: Disc3 },
+    { text: "Correia Dentada", icon: Wrench },
+    { text: "Bateria", icon: Zap },
+    { text: "Óleo e Filtros", icon: Droplets },
+    { text: "Pastilhas e Discos", icon: Disc3 },
+    { text: "Câmbio Automático", icon: Cog },
+    { text: "Direção Hidráulica", icon: CircleGauge },
+    { text: "Motor Diesel e Gasolina", icon: Wrench },
+    { text: "Elétrica e Eletrônica", icon: Zap },
+    { text: "Vidraçaria", icon: Car },
+    { text: "Repintura e Funilaria", icon: PaintBucket },
+    { text: "Leva e Tráz", icon: Truck },
+    { text: "Capotaria", icon: Sofa },
+    { text: "Fluidos do Diferencial", icon: Settings2 },
+    { text: "Suspensão Pneumática", icon: CircleGauge },
+    { text: "Ar Condicionado", icon: Snowflake }
   ];
+
   return (
-    <div className="border-y border-border bg-union py-5 overflow-hidden">
-      <div className="flex animate-[scroll_10s_linear_infinite] gap-12 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream">
-        {[...words, ...words, ...words].map((w, i) => (
-          <span key={i} className="flex items-center gap-12">
-            {w} <span className="text-cream/40">✦</span>
-          </span>
-        ))}
+    <div 
+      className="relative border-y-2 border-accent bg-union py-6 overflow-hidden shadow-[0_0_40px_rgba(0,168,89,0.3)] select-none"
+      style={{
+        transform: "perspective(1000px) rotateX(6deg) skewX(-2deg)",
+        transformStyle: "preserve-3d"
+      }}
+    >
+      {/* Glossy overlay sheen */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none z-10 animate-[shine_8s_infinite]" />
+      
+      <div className="flex animate-[scroll_18s_linear_infinite] gap-16 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream items-center">
+        {[...items, ...items, ...items].map((item, i) => {
+          const Icon = item.icon;
+          return (
+            <span key={i} className="flex items-center gap-6 group hover:scale-105 transition-transform duration-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cream via-white to-[#dddddd] drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
+                {item.text}
+              </span>
+              <Icon className="h-7 w-7 text-accent animate-pulse-accent drop-shadow-[0_0_12px_rgba(0,168,89,0.85)] group-hover:rotate-12 transition-transform duration-300" />
+              <span className="text-accent/40 font-bold">✦</span>
+            </span>
+          );
+        })}
       </div>
       <style>{`@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}`}</style>
     </div>
@@ -214,8 +233,8 @@ function About() {
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-accent">Sobre nós</p>
-          <h2 className="mt-4 text-display text-3xl leading-tight sm:text-4xl font-black uppercase tracking-wide">
-            OFICINA COMPLETA: SEU CARRO SEMPRE PRONTO PARA A <span className="text-accent">PRÓXIMA AVENTURA!</span>
+          <h2 className="mt-4 text-display text-4xl leading-tight sm:text-5xl font-black uppercase tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-cream to-[#b0b0b0]">
+            OFICINA COMPLETA: SEU CARRO SEMPRE PRONTO PARA A <span className="text-transparent bg-clip-text bg-gradient-to-b from-emerald-300 via-accent to-emerald-700 drop-shadow-[0_0_15px_rgba(0,168,89,0.5)]">PRÓXIMA AVENTURA!</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground font-semibold">
             Tudo o que a sua <span className="text-accent font-bold">Land Rover</span> precisa!
@@ -234,7 +253,7 @@ function Services() {
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">Serviços Premium</p>
-            <h2 className="mt-4 text-display text-4xl leading-tight sm:text-6xl uppercase">
+            <h2 className="mt-4 text-display text-4xl leading-[1.05] sm:text-6xl uppercase font-black text-transparent bg-clip-text bg-gradient-to-b from-cream via-cream to-muted-foreground/50 drop-shadow-[0_4px_15px_rgba(0,168,89,0.25)]">
               Catálogo de Serviços<br />de Alta Performance.
             </h2>
           </div>
@@ -334,7 +353,7 @@ function LevaTraz() {
       
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-display text-6xl sm:text-7xl md:text-8xl leading-none font-black text-accent tracking-tighter uppercase">
+          <h2 className="text-display text-6xl sm:text-7xl md:text-8xl leading-none font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-emerald-200 via-accent to-emerald-800 drop-shadow-[0_0_35px_rgba(0,168,89,0.7)]">
             LEVA & TRAZ
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-cream/90 font-semibold max-w-2xl mx-auto">
