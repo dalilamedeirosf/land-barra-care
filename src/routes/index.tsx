@@ -462,11 +462,6 @@ function ShowcaseStrip() {
       />
       <div className="absolute inset-0 bg-background/85" />
       <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
-        <img
-          src={logo}
-          alt="Logo Garage Britânica"
-          className="h-20 sm:h-24 w-auto object-contain mb-8 animate-pulse-accent rounded-full p-1 bg-background/40"
-        />
         <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-accent font-black">
           PRONTO PARA COMEÇAR?
         </p>
