@@ -1,4 +1,6 @@
+import { useState, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+
 import {
   Wrench, Gauge, Zap, Snowflake, CircleGauge, Cog, Settings2, Car,
   PaintBucket, Sofa, Truck, ShieldCheck, MapPin, Instagram,
@@ -112,12 +114,13 @@ function Hero() {
         muted
         playsInline
         poster={heroImg}
-        className="absolute inset-0 h-full w-full object-cover select-none opacity-80 md:opacity-70"
+        className="absolute inset-0 h-full w-full object-cover select-none"
+        style={{ filter: "brightness(1.85) contrast(1.05) saturate(1.05)" }}
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
-      <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
       <div className="absolute inset-0 grain" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col justify-between px-6 py-16">
@@ -129,13 +132,13 @@ function Hero() {
         <div className="max-w-4xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent text-shadow-sporty">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            Oficina Mecânica Especializada Land Rover
+            Oficina Mecânica Especializada em Serviços Premium
           </div>
           <h1 className="text-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] font-bold uppercase tracking-wider text-shadow-sporty">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-cream via-[#fbfbf9] to-[#cccccc] drop-shadow-[0_4px_20px_rgba(0,168,89,0.3)]">
+            <span className="block text-cream drop-shadow-[0_4px_20px_rgba(0,168,89,0.2)]">
               Garage Britânica
             </span>
-            <span className="font-sans text-accent text-lg sm:text-2xl md:text-3xl block mt-6 font-semibold tracking-wide uppercase drop-shadow-[0_0_15px_rgba(0,168,89,0.5)]">
+            <span className="font-sans text-accent text-base sm:text-lg md:text-xl block mt-6 font-semibold tracking-wide uppercase drop-shadow-[0_0_15px_rgba(0,168,89,0.5)]">
               Manutenção de alto nível, para quem não aceita menos que o melhor!
             </span>
           </h1>
@@ -150,11 +153,6 @@ function Hero() {
           </div>
         </div>
 
-        <div className="grid gap-6 border-t border-cream/15 pt-8 text-cream/80 sm:grid-cols-3">
-          <Stat n="20+" label="Serviços Especializados" />
-          <Stat n="100%" label="Equipamentos Originais" />
-          <Stat n="Premium" label="Padrão de Atendimento" />
-        </div>
       </div>
     </section>
   );
@@ -172,54 +170,93 @@ function Stat({ n, label }: { n: string; label: string }) {
 function Marquee() {
   const items = [
     { text: "Diagnóstico Computadorizado", icon: Gauge },
-    { text: "Transmissão Automática", icon: Cog },
-    { text: "Fluido de Freio", icon: Disc3 },
-    { text: "Correia Dentada", icon: Wrench },
-    { text: "Bateria", icon: Zap },
-    { text: "Óleo e Filtros", icon: Droplets },
-    { text: "Pastilhas e Discos", icon: Disc3 },
-    { text: "Câmbio Automático", icon: Cog },
-    { text: "Direção Hidráulica", icon: CircleGauge },
-    { text: "Motor Diesel e Gasolina", icon: Wrench },
-    { text: "Elétrica e Eletrônica", icon: Zap },
-    { text: "Vidraçaria", icon: Car },
-    { text: "Repintura e Funilaria", icon: PaintBucket },
-    { text: "Leva e Tráz", icon: Truck },
-    { text: "Capotaria", icon: Sofa },
-    { text: "Fluidos do Diferencial", icon: Settings2 },
-    { text: "Suspensão Pneumática", icon: CircleGauge },
-    { text: "Ar Condicionado", icon: Snowflake }
+    { text: "Transmissão Automática",      icon: Cog },
+    { text: "Fluido de Freio",             icon: Disc3 },
+    { text: "Correia Dentada",             icon: Wrench },
+    { text: "Bateria",                     icon: Zap },
+    { text: "Óleo e Filtros",              icon: Droplets },
+    { text: "Pastilhas e Discos",          icon: Disc3 },
+    { text: "Câmbio Automático",           icon: Cog },
+    { text: "Direção Hidráulica",          icon: CircleGauge },
+    { text: "Motor Diesel e Gasolina",     icon: Wrench },
+    { text: "Elétrica e Eletrônica",       icon: Zap },
+    { text: "Vidraçaria",                  icon: Car },
+    { text: "Repintura e Funilaria",       icon: PaintBucket },
+    { text: "Leva e Tráz",                icon: Truck },
+    { text: "Capotaria",                   icon: Sofa },
+    { text: "Fluidos do Diferencial",      icon: Settings2 },
+    { text: "Suspensão Pneumática",        icon: CircleGauge },
+    { text: "Ar Condicionado",             icon: Snowflake },
   ];
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ x: 7, y: 0, shadowX: 0, shadowY: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Normalizado entre -0.5 e 0.5
+    const xPct = (x / rect.width) - 0.5;
+    const yPct = (y / rect.height) - 0.5;
+
+    // Tilt no desktop: varia rotateX entre 2deg e 13deg, e rotateY de -9deg a 9deg
+    const tiltX = 7 - (yPct * 12);
+    const tiltY = xPct * 18;
+
+    // Deslocamento de sombra em direção oposta à inclinação
+    const shadowX = xPct * -30;
+    const shadowY = 20 - (yPct * 30);
+
+    setTilt({ x: tiltX, y: tiltY, shadowX, shadowY });
+  };
+
+  const handleMouseLeave = () => {
+    // Retorna ao tilt padrão suavemente
+    setTilt({ x: 7, y: 0, shadowX: 0, shadowY: 20 });
+  };
+
   return (
-    <div 
-      className="relative border-y-2 border-accent bg-union py-6 overflow-hidden shadow-[0_0_40px_rgba(0,168,89,0.3)] select-none"
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="marquee-4d-wrap select-none"
       style={{
-        transform: "perspective(1000px) rotateX(6deg) skewX(-2deg)",
-        transformStyle: "preserve-3d"
-      }}
+        '--tilt-x': `${tilt.x}deg`,
+        '--tilt-y': `${tilt.y}deg`,
+        '--shadow-x': `${tilt.shadowX}px`,
+        '--shadow-y': `${tilt.shadowY}px`,
+        '--shadow-x-deep': `${tilt.shadowX * 1.6}px`,
+        '--shadow-y-deep': `${tilt.shadowY * 1.6}px`,
+      } as React.CSSProperties}
     >
-      {/* Glossy overlay sheen */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none z-10 animate-[shine_8s_infinite]" />
-      
-      <div className="flex animate-[scroll_18s_linear_infinite] gap-16 whitespace-nowrap text-display text-2xl uppercase tracking-widest text-cream items-center">
-        {[...items, ...items, ...items].map((item, i) => {
-          const Icon = item.icon;
-          return (
-            <span key={i} className="flex items-center gap-6 group hover:scale-105 transition-transform duration-300">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cream via-white to-[#dddddd] drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
-                {item.text}
+      <div className="marquee-4d-inner py-6 sm:py-5 md:py-6">
+        <div className="marquee-track-move gap-14 sm:gap-16">
+          {[...items, ...items, ...items, ...items, ...items].map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <span key={i} className="flex items-center gap-5 sm:gap-7 shrink-0 group">
+                <span className="text-accent/60 text-base sm:text-sm font-bold">◆</span>
+                <span className="text-display text-[1.38rem] sm:text-[1.35rem] md:text-[1.55rem] uppercase tracking-[0.12em] sm:tracking-[0.14em] font-black text-transparent bg-clip-text bg-gradient-to-r from-cream via-white to-[#dddddd] drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
+                  {item.text}
+                </span>
+                <span className="relative flex items-center justify-center">
+                  <span className="absolute inset-0 rounded-full bg-accent/20 blur-md animate-pulse-accent" />
+                  <Icon className="relative h-7 w-7 sm:h-7 sm:w-7 text-accent drop-shadow-[0_0_10px_rgba(0,168,89,1)]" />
+                </span>
               </span>
-              <Icon className="h-7 w-7 text-accent animate-pulse-accent drop-shadow-[0_0_12px_rgba(0,168,89,0.85)] group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-accent/40 font-bold">✦</span>
-            </span>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-      <style>{`@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}`}</style>
     </div>
   );
 }
+
 
 function About() {
   return (
@@ -262,6 +299,10 @@ function Services() {
             da manutenção básica à suspensão pneumática avançada. Clique em um serviço para agendar via WhatsApp.
           </p>
         </div>
+
+        <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground/60 text-center mb-6 font-medium">
+          ↓ Escolha um dos serviços abaixo clicando ↓
+        </p>
 
         <div className="grid gap-6 md:grid-cols-2">
           {serviceGroups.map((g) => (
@@ -318,22 +359,24 @@ function Services() {
                   const url = `${WHATSAPP}?text=${encodeURIComponent(messageText)}`;
                   return (
                     <li key={label}>
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group/btn flex items-center justify-between gap-4 rounded-sm border border-border/80 bg-background/30 p-4 transition-all duration-300 hover:border-accent hover:bg-accent/5 hover:-translate-y-0.5 hover:shadow-glow-sm animate-pulse-glow-button"
-                      >
-                        <div className="flex items-center gap-4">
-                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/btn:bg-accent group-hover/btn:text-accent-foreground group-hover/btn:scale-105 transition-all duration-300 animate-pulse-accent">
-                            <Icon className="h-5 w-5" />
-                          </span>
-                          <span className="text-sm font-semibold tracking-wide text-foreground/90 group-hover/btn:text-cream transition-colors">
-                            {label}
-                          </span>
-                        </div>
-                        <ArrowUpRight className="h-4.5 w-4.5 text-muted-foreground group-hover/btn:text-accent group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" />
-                      </a>
+                      <div className="btn-3d-wrapper">
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn-3d-pulse group/btn flex items-center justify-between gap-4 rounded-sm p-4 transition-all duration-200"
+                        >
+                          <div className="flex items-center gap-4">
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-accent/10 border border-accent/20 text-accent group-hover/btn:bg-accent group-hover/btn:text-accent-foreground group-hover/btn:scale-105 transition-all duration-300 animate-pulse-accent">
+                              <Icon className="h-5 w-5" />
+                            </span>
+                            <span className="text-sm font-semibold tracking-wide text-foreground/90 group-hover/btn:text-cream transition-colors">
+                              {label}
+                            </span>
+                          </div>
+                          <ArrowUpRight className="h-4.5 w-4.5 text-muted-foreground group-hover/btn:text-accent group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all duration-300" />
+                        </a>
+                      </div>
                     </li>
                   );
                 })}
@@ -346,124 +389,161 @@ function Services() {
   );
 }
 
+function Node3D({ icon: Icon, label, rotate, delayS = 0 }: { icon: typeof Truck; label: string; rotate?: boolean; delayS?: number }) {
+  const d = (offset: number) => `${delayS + offset}s`;
+  return (
+    <div className="flex flex-col items-center gap-4 cursor-default select-none group">
+      {/* Float wrapper — slow levitation */}
+      <div style={{ animation: `float-luxury 2.5s ease-in-out infinite`, animationDelay: d(0) }}>
+        {/* 3D tilt sway */}
+        <div
+          className="relative w-32 h-32"
+          style={{ animation: `tilt-sway 3s ease-in-out infinite`, animationDelay: d(0), transformStyle: 'preserve-3d' }}
+        >
+          {/* Breathing outer glow */}
+          <div
+            className="absolute -inset-8 rounded-full bg-accent/20 blur-3xl pointer-events-none"
+            style={{ animation: `glow-breathe 1.8s ease-in-out infinite`, animationDelay: d(0) }}
+          />
+
+          {/* Ripple ring 1 */}
+          <div
+            className="absolute inset-0 rounded-full border-2 border-accent/60 pointer-events-none"
+            style={{ animation: `ripple-ring 1.4s ease-out infinite`, animationDelay: d(0) }}
+          />
+          {/* Ripple ring 2 */}
+          <div
+            className="absolute inset-0 rounded-full border border-accent/40 pointer-events-none"
+            style={{ animation: `ripple-ring 1.4s ease-out infinite`, animationDelay: d(0.9) }}
+          />
+          {/* Ripple ring 3 */}
+          <div
+            className="absolute inset-0 rounded-full border border-accent/25 pointer-events-none"
+            style={{ animation: `ripple-ring 1.4s ease-out infinite`, animationDelay: d(1.8) }}
+          />
+
+          {/* 3D sphere */}
+          <div
+            className="absolute inset-0 rounded-full flex items-center justify-center z-10 group-hover:scale-105 transition-transform duration-500"
+            style={{
+              background: 'radial-gradient(circle at 32% 28%, oklch(0.45 0.20 155), oklch(0.09 0.04 155))',
+              boxShadow: [
+                'inset 0 4px 10px rgba(255,255,255,0.22)',
+                'inset 0 -5px 10px rgba(0,0,0,0.6)',
+                '5px 5px 0 oklch(0.06 0.025 155)',
+                '10px 10px 0 oklch(0.04 0.015 155)',
+                '15px 15px 20px rgba(0,0,0,0.4)',
+                '0 0 55px rgba(0,168,89,0.7)',
+                '0 22px 50px rgba(0,0,0,0.7)',
+              ].join(', '),
+            }}
+          >
+            <Icon
+              className={`h-14 w-14 text-white drop-shadow-[0_0_16px_rgba(255,255,255,1)] transition-transform duration-300 ${rotate ? 'group-hover:rotate-45' : 'group-hover:scale-110'}`}
+            />
+          </div>
+
+          {/* Specular highlight */}
+          <div className="absolute top-4 left-6 w-9 h-6 rounded-full bg-white/20 blur-sm z-20 pointer-events-none" />
+        </div>
+      </div>
+
+      {/* Label */}
+      <span className="text-xs font-black tracking-[0.3em] uppercase text-accent bg-background/85 backdrop-blur-md px-5 py-1.5 rounded-sm border border-accent/40 shadow-[0_0_20px_rgba(0,168,89,0.35)]">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 function LevaTraz() {
   return (
-    <section id="leva-traz" className="relative border-t border-border bg-card/25 py-24 overflow-hidden bg-grid-pattern">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-display text-6xl sm:text-7xl md:text-8xl leading-none font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-emerald-200 via-accent to-emerald-800 drop-shadow-[0_0_35px_rgba(0,168,89,0.7)]">
-            LEVA & TRAZ
-          </h2>
-          <p className="mt-4 text-base sm:text-lg md:text-xl text-cream/90 font-semibold max-w-2xl mx-auto">
-            O ciclo perfeito para o seu veículo sair rodando como novo.
-          </p>
-        </div>
+    <section id="leva-traz" className="relative border-t border-border min-h-screen overflow-hidden flex flex-col">
 
-        {/* Circular Diagram on Desktop / Stacked List on Mobile */}
-        <div className="relative mx-auto max-w-3xl h-[420px] sm:h-[480px] md:h-[520px] flex items-center justify-center">
-          
-          {/* SVG Animated Arrows (Desktop only) */}
+      {/* Full-section background video */}
+      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-60 select-none">
+        <source src={levaTrazVideo} type="video/mp4" />
+      </video>
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/35" />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center w-full flex-1 px-6 pt-16 pb-16">
+
+        {/* Full-viewport-width title */}
+        <h2
+          className="font-black uppercase text-center text-transparent bg-clip-text bg-gradient-to-b from-emerald-200 via-accent to-emerald-800 w-full leading-none tracking-tight"
+          style={{ fontSize: 'clamp(4rem, 13vw, 14rem)', filter: 'drop-shadow(0 0 55px rgba(0,168,89,0.85))' }}
+        >
+          LEVA & TRAZ
+        </h2>
+        <p className="mt-6 text-cream/90 font-semibold text-lg md:text-xl text-center max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-14">
+          O ciclo perfeito para o seu veículo sair rodando como novo.
+        </p>
+
+        {/* Full-width diagram */}
+        <div className="relative w-full max-w-6xl mx-auto" style={{ minHeight: '520px' }}>
+
+          {/* SVG Animated Arrows */}
           <div className="absolute inset-0 hidden md:block">
-            <svg className="w-full h-full pointer-events-none" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-full h-full pointer-events-none" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <marker id="arrowhead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto">
                   <path d="M0 1.5 L8 5 L0 8.5 Z" fill="currentColor" className="text-accent" />
                 </marker>
               </defs>
-              
-              {/* Arrow 1: DELIVERY to MECÂNICA */}
-              <path
-                d="M 270 120 C 180 160 120 250 135 320"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeDasharray="6 6"
-                className="text-accent/60 animate-[dash_2s_linear_infinite]"
-                markerEnd="url(#arrowhead)"
-              />
-              
-              {/* Arrow 2: MECÂNICA to ESTÉTICA */}
-              <path
-                d="M 170 380 C 250 410 350 410 430 380"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeDasharray="6 6"
-                className="text-accent/60 animate-[dash_2s_linear_infinite]"
-                markerEnd="url(#arrowhead)"
-              />
-              
-              {/* Arrow 3: ESTÉTICA to DELIVERY */}
-              <path
-                d="M 465 320 C 480 250 420 160 330 120"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeDasharray="6 6"
-                className="text-accent/60 animate-[dash_2s_linear_infinite]"
-                markerEnd="url(#arrowhead)"
-              />
+              {/* DELIVERY(500,70) → MECÂNICA(80,410) */}
+              <path d="M 462 95 C 310 160 130 260 105 380" stroke="currentColor" strokeWidth="2.5" strokeDasharray="8 6" className="text-accent/70 animate-[dash_2s_linear_infinite]" markerEnd="url(#arrowhead)" />
+              {/* MECÂNICA(80,410) → ESTÉTICA(920,410) */}
+              <path d="M 150 435 C 400 500 600 500 850 435" stroke="currentColor" strokeWidth="2.5" strokeDasharray="8 6" className="text-accent/70 animate-[dash_2s_linear_infinite]" markerEnd="url(#arrowhead)" />
+              {/* ESTÉTICA(920,410) → DELIVERY(500,70) */}
+              <path d="M 895 380 C 870 260 690 160 538 95" stroke="currentColor" strokeWidth="2.5" strokeDasharray="8 6" className="text-accent/70 animate-[dash_2s_linear_infinite]" markerEnd="url(#arrowhead)" />
             </svg>
           </div>
 
-          {/* Central Video */}
-          <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] z-10 transition-transform duration-500 hover:scale-105 flex items-center justify-center">
-            <div className="absolute inset-0 bg-accent/20 rounded-lg blur-2xl animate-pulse pointer-events-none" />
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-lg border border-accent/30 shadow-[0_15px_40px_rgba(0,168,89,0.35)] relative z-10"
+          {/* Center logo — animated */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            {/* Breathing outer glow */}
+            <div
+              className="absolute -inset-10 rounded-full bg-accent/15 blur-3xl pointer-events-none"
+              style={{ animation: 'glow-breathe 1.8s ease-in-out infinite' }}
+            />
+            {/* Rotating gradient border ring */}
+            <div
+              className="absolute -inset-[3px] rounded-full pointer-events-none"
+              style={{
+                background: 'conic-gradient(from 0deg, rgba(0,168,89,0.05), rgba(0,168,89,0.7), rgba(180,255,200,1), rgba(0,168,89,0.7), rgba(0,168,89,0.05))',
+                animation: 'rotate-border 2s linear infinite',
+              }}
+            />
+            {/* Main circle */}
+            <div
+              className="relative w-48 h-48 rounded-full bg-[oklch(0.10_0.03_155)] backdrop-blur-md flex items-center justify-center"
+              style={{ boxShadow: '0 0 60px rgba(0,168,89,0.35), inset 0 0 30px rgba(0,168,89,0.1)' }}
             >
-              <source src={levaTrazVideo} type="video/mp4" />
-            </video>
-          </div>
-
-          {/* Nodes (DELIVERY, MECÂNICA, ESTÉTICA) */}
-          
-          {/* Node 1: DELIVERY (Top Center) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 md:top-4">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <MapPin className="h-7 w-7 text-accent animate-bounce" />
-                </div>
-                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
-                  DELIVERY
-                </div>
-              </div>
+              <img
+                src={logo}
+                alt="Garage Britânica"
+                className="w-36 object-contain opacity-95"
+                style={{ animation: 'logo-breathe 2s ease-in-out infinite' }}
+              />
             </div>
           </div>
 
-          {/* Node 2: MECÂNICA (Bottom Left) */}
-          <div className="absolute bottom-6 left-4 z-20 md:bottom-16 md:left-12">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Wrench className="h-7 w-7 text-accent animate-pulse" />
-                </div>
-                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
-                  MECÂNICA
-                </div>
-              </div>
-            </div>
+          {/* Node: DELIVERY (top center) */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20">
+            <Node3D icon={Truck} label="DELIVERY" delayS={0} />
           </div>
 
-          {/* Node 3: ESTÉTICA (Bottom Right) */}
-          <div className="absolute bottom-6 right-4 z-20 md:bottom-16 md:right-12">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-20 h-20 sm:w-26 sm:h-26 rounded-full border-2 border-accent bg-background/90 backdrop-blur-md flex flex-col items-center justify-center p-3 shadow-[0_0_15px_rgba(0,168,89,0.15)]">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Droplets className="h-7 w-7 text-accent" />
-                </div>
-                <div className="absolute -bottom-3 bg-accent text-accent-foreground text-[9px] sm:text-xs font-black tracking-widest px-3 py-0.5 rounded-sm shadow-md whitespace-nowrap">
-                  ESTÉTICA
-                </div>
-              </div>
-            </div>
+          {/* Node: MECÂNICA (bottom left) */}
+          <div className="absolute bottom-0 left-0 z-20 md:left-2">
+            <Node3D icon={Wrench} label="MECÂNICA" rotate delayS={1.6} />
+          </div>
+
+          {/* Node: ESTÉTICA (bottom right) */}
+          <div className="absolute bottom-0 right-0 z-20 md:right-2">
+            <Node3D icon={PaintBucket} label="ESTÉTICA" delayS={0.9} />
           </div>
 
         </div>

@@ -73,7 +73,7 @@
   --font-display: "Oswald", "Impact", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.4) 0%, oklch(0.16 0.012 240 / 0.85) 60%, oklch(0.16 0.012 240) 100%);
+  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.012 240 / 0.1) 0%, oklch(0.16 0.012 240 / 0.35) 60%, oklch(0.16 0.012 240 / 0.6) 100%);
   --gradient-union: linear-gradient(135deg, oklch(0.24 0.06 155) 0%, oklch(0.40 0.10 150) 100%);
   --shadow-elegant: 0 30px 80px -20px oklch(0 0 0 / 0.6);
   --shadow-glow: 0 0 40px oklch(0.58 0.16 155 / 0.3);
@@ -152,6 +152,192 @@
   }
 }
 
+/* Continuous linear speed (translates by -80% for 4 full passes) - GPU accelerated */
+@keyframes marquee-variable {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-80%, 0, 0); }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-80%, 0, 0); }
+}
+
+.marquee-track-move {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  align-items: center;
+  animation: marquee-variable 240s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 639px) {
+  .marquee-track-move {
+    animation-duration: 150s;
+  }
+}
+
+/* ── 4D Ultra Marquee ────────────────────────────────── */
+.marquee-4d-wrap {
+  position: relative;
+  padding: 2.5px;
+  border-radius: 4px;
+  background: conic-gradient(
+    from var(--border-angle),
+    oklch(0.15 0.06 155 / 0.2) 0%,
+    oklch(0.15 0.06 155 / 0.2) 32%,
+    oklch(0.75 0.22 155 / 1)   46%,
+    oklch(0.97 0.16 140 / 1)   50%,
+    oklch(0.75 0.22 155 / 1)   54%,
+    oklch(0.15 0.06 155 / 0.2) 68%,
+    oklch(0.15 0.06 155 / 0.2) 100%
+  );
+  animation: run-border-light 1.4s linear infinite;
+  box-shadow: 
+    var(--shadow-x, 0px) var(--shadow-y, 20px) 55px rgba(0, 168, 89, 0.35),
+    var(--shadow-x-deep, 0px) var(--shadow-y-deep, 35px) 110px rgba(0, 0, 0, 0.65);
+  transform: perspective(1200px) rotateX(var(--tilt-x, 7deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.22s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.marquee-4d-inner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg,
+    oklch(0.07 0.025 155) 0%,
+    oklch(0.13 0.055 155) 35%,
+    oklch(0.13 0.055 155) 65%,
+    oklch(0.07 0.025 155) 100%
+  );
+  transform: none;
+  transform-style: preserve-3d;
+}
+
+/* Edge vignette + scanlines */
+.marquee-4d-inner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right,
+      oklch(0.07 0.025 155) 0%,
+      transparent 14%,
+      transparent 86%,
+      oklch(0.07 0.025 155) 100%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 2px,
+      rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
+    );
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (max-width: 639px) {
+  .marquee-4d-wrap {
+    padding: 1px;
+  }
+  .marquee-4d-inner::before {
+    background:
+      linear-gradient(to right,
+        oklch(0.07 0.025 155) 0%,
+        transparent 3%,
+        transparent 97%,
+        oklch(0.07 0.025 155) 100%
+      );
+  }
+  .marquee-4d-inner {
+    transform: none;
+    background: linear-gradient(180deg,
+      oklch(0.09 0.03 155) 0%,
+      oklch(0.14 0.06 155) 40%,
+      oklch(0.14 0.06 155) 60%,
+      oklch(0.09 0.03 155) 100%
+    );
+  }
+}
+
+/* Sweeping shine beam */
+.marquee-4d-inner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -70%;
+  width: 45%; height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.09) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: shine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 11;
+}
+
+
+
+@keyframes btn-3d-pulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.07),
+      0 1px 0 oklch(0.24 0.09 155),
+      0 2px 0 oklch(0.21 0.08 155),
+      0 3px 0 oklch(0.18 0.07 155),
+      0 4px 0 oklch(0.15 0.06 155),
+      0 5px 0 oklch(0.13 0.05 155),
+      0 6px 0 oklch(0.11 0.04 155),
+      0 10px 20px rgba(0,0,0,0.6),
+      0 0 0px rgba(0,168,89,0);
+    transform: perspective(1000px) rotateX(1.5deg) translateZ(0px);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.07),
+      0 1px 0 oklch(0.24 0.09 155),
+      0 2px 0 oklch(0.21 0.08 155),
+      0 3px 0 oklch(0.18 0.07 155),
+      0 4px 0 oklch(0.15 0.06 155),
+      0 5px 0 oklch(0.13 0.05 155),
+      0 6px 0 oklch(0.11 0.04 155),
+      0 10px 20px rgba(0,0,0,0.6),
+      0 0 20px rgba(0,168,89,0.28);
+    transform: perspective(1000px) rotateX(1.5deg) translateZ(0px) translateY(-1.5px);
+  }
+}
+
+@keyframes float-luxury {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  30% { transform: translateY(-14px) scale(1.02); }
+  60% { transform: translateY(-8px) scale(0.99); }
+}
+
+@keyframes ripple-ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0;   }
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.2; transform: scale(0.85); }
+  50%       { opacity: 0.7; transform: scale(1.4);  }
+}
+
+@keyframes tilt-sway {
+  0%,100% { transform: perspective(600px) rotateX(-8deg) rotateY(8deg); }
+  33%     { transform: perspective(600px) rotateX(-5deg) rotateY(12deg); }
+  66%     { transform: perspective(600px) rotateX(-12deg) rotateY(4deg); }
+}
+
+@keyframes logo-breathe {
+  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 15px rgba(0,168,89,0.5)); }
+  50%       { transform: scale(1.08); filter: drop-shadow(0 0 35px rgba(0,168,89,1));   }
+}
+
 @layer utilities {
   .text-display { font-family: var(--font-display); }
   .bg-union { background-image: var(--gradient-union); }
@@ -189,6 +375,119 @@
   .shadow-glow-sm {
     box-shadow: 0 0 15px oklch(0.58 0.16 155 / 0.2);
   }
+
+  /* ─── Running light border wrapper ─── */
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .btn-3d-wrapper {
+    position: relative;
+    border-radius: 3px;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--border-angle),
+      oklch(0.20 0.08 155 / 0.15) 0%,
+      oklch(0.20 0.08 155 / 0.15) 35%,
+      oklch(0.70 0.22 155 / 1)    46%,
+      oklch(0.95 0.18 140 / 1)    50%,
+      oklch(0.70 0.22 155 / 1)    54%,
+      oklch(0.20 0.08 155 / 0.15) 65%,
+      oklch(0.20 0.08 155 / 0.15) 100%
+    );
+    animation: run-border-light 1.8s linear infinite;
+    transition: padding 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-3d-wrapper:has(a:hover) {
+    padding: 2px;
+    animation-duration: 0.8s;
+  }
+
+  @keyframes run-border-light {
+    to { --border-angle: 360deg; }
+  }
+
+  /* ─── 3D Ultra button (sits inside wrapper) ─── */
+  .btn-3d-pulse {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    border-radius: 2px;
+    border: none !important;
+    animation: btn-3d-pulse 2.5s ease-in-out infinite;
+    background: linear-gradient(160deg,
+      oklch(0.20 0.018 240) 0%,
+      oklch(0.15 0.012 240) 60%,
+      oklch(0.11 0.008 240) 100%
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 1px 0 oklch(0.24 0.09 155),
+      0 2px 0 oklch(0.21 0.08 155),
+      0 3px 0 oklch(0.18 0.07 155),
+      0 4px 0 oklch(0.16 0.06 155),
+      0 5px 0 oklch(0.13 0.05 155),
+      0 6px 0 oklch(0.11 0.04 155),
+      0 7px 0 oklch(0.09 0.03 155),
+      0 8px 0 oklch(0.07 0.02 155),
+      0 14px 28px rgba(0,0,0,0.7);
+    transform: perspective(700px) rotateX(2deg) translateZ(0px);
+    transition:
+      transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+      background 0.25s ease !important;
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+  }
+
+  /* Shimmer sweep */
+  .btn-3d-pulse::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 55%; height: 100%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.16) 50%,
+      transparent 100%
+    );
+    transform: skewX(-16deg);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .btn-3d-pulse:hover::before { left: 160%; }
+
+  /* HOVER — extreme 4D jump */
+  .btn-3d-pulse:hover {
+    animation: none !important;
+    transform: perspective(600px) rotateX(-1deg) translateZ(52px) scale(1.055) translateY(-10px) !important;
+    background: linear-gradient(160deg,
+      oklch(0.26 0.09 155) 0%,
+      oklch(0.18 0.055 155) 100%
+    ) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      0 0 0 1px oklch(0.65 0.18 155 / 0.8),
+      0 15px 40px rgba(0,168,89,0.55),
+      0 30px 65px rgba(0,0,0,0.6),
+      0 0 60px rgba(0,168,89,0.25),
+      0 -2px 20px rgba(0,168,89,0.1) !important;
+  }
+
+  /* ACTIVE — snaps back in */
+  .btn-3d-pulse:active {
+    transform: perspective(700px) rotateX(4deg) translateZ(8px) scale(0.97) translateY(4px) !important;
+    box-shadow:
+      inset 0 3px 8px rgba(0,0,0,0.5),
+      0 2px 0 oklch(0.22 0.08 155),
+      0 5px 15px rgba(0,0,0,0.5) !important;
+    transition-duration: 0.08s !important;
+  }
+
+
 
   /* Premium maximum quality button */
   .btn-premium {
